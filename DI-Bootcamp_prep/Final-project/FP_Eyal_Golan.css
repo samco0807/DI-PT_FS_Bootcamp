@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+  font-family: "Playfair Display", serif;
+}
+
+/* NAV BAR */
+
+nav {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  list-style: none;
+  background-color: #538585;
+  justify-content: space-between;
+  height: 5vh;
+  align-items: center;
+  font-size: calc(1% + 1.5vw);
+}
+
+nav ul {
+  height: 50%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  list-style: none;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: aliceblue;
+  padding: 0 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+nav li:hover {
+  transition: 0.2s;
+  font-size: 25px;
+  color: rgb(24, 110, 118);
+  background-color: antiquewhite;
+}
+
+h2 {
+  text-align: center;
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#icons {
+  cursor: pointer;
+  display: none;
+}
+
+/* BANNER */
+
+.bg-image {
+  background-image: url('https://www.eventworld.co/blob/images/pg/eyal-golan_40f28_opgh.jpg');
+  background-size: cover;
+  background-position: center;
+height: 1000px; /* Set the height of the image container */
+  position: relative; /* Make sure the text is positioned relative to the container */
+}
+
+.overlay {
+  width: 30%;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  font-size:1em;
+  transform: translate(-50%, -50%);
+  color: white; /* Set the color of the text */
+}
+
+.overlay h1 {
+  font-size: 3em;
+  margin-left: 10%;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.overlay h3 {
+  font-size: 1em;
+  margin-left: 10%;
+  margin-top: 0;
+}
+
+/* BIOGRAPHY */
+
+.biography {
+  align-items: center;
+  justify-content: center;
+  /* background-color: antiquewhite; */
+  padding: 20px;
+  padding-bottom: 40px;
+}
+
+.biographie {
+  display: flex;
+  justify-content: center;
+}
+
+.biography-container {
+  display: flex;
+  align-items: center;
+  width: 1000px;
+}
+
+.biography-container img {
+  width: 20%;
+  height: auto;
+  margin-left: 20%;
+  margin-right: 2%;
+  border-radius: 100%;
+}
+
+.biography-container p {
+  font-size: 20px;
+  line-height: 30px;
+}
+span a {
+  color: blue;
+  font-size: 20px;
+}
+
+/* CAROUSSEL DISCOGRAPHY */
+
+
+
+/* DISCOGRAPHY */
+
+.discography {
+  padding-bottom: 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.albums {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.discography-box {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  border-style: outset;
+  border-color: black;
+  border-radius: 20px;
+  /* background-color: antiquewhite; */
+  width: 400px;
+  height: 190px;
+  margin: 10px 20px;
+}
+
+.discography-box img {
+  width: 35%;
+  margin: 15px;
+  border-style: groove;
+  border-radius: 100%;
+}
+
+ul.text {
+  margin: 0;
+  padding: 5%;
+}
+
+/* SONGS/ */
+
+.songs {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.songs-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.song {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+  margin: 10px;
+  justify-content: space-evenly;
+}
+
+.songs a {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  width: 70%;
+  height: 100%;
+  justify-content: space-around;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.songs img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.song :hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+
+/* AWARDS */
+
+.awards {
+  height: 700px;
+  /* background-color: antiquewhite; */
+}
+
+.awards-awards {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 600px;
+  /* background-color: antiquewhite; */
+}
+
+.prices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 600px;
+}
+
+.awards-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4%;
+  /* background-color: #94b8b8; */
+  margin: 5px 40px;
+  /* color: antiquewhite; */
+  flex-wrap: wrap;
+  width: 14%;
+  height: 450px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.323);
+  /* color: black; */
+}
+
+.awards img {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 20px 20px;
+  border-radius: 100%;
+}
+
+.awards-box ul {
+  padding: 15px;
+  list-style-type: none;
+  font-size: large;
+}
+
+/* NEWSLETTER */
+
+.newsletter {
+  display: grid;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.newsletter-container {
+  display: grid;
+  justify-items: center;
+}
+
+input#submit {
+  margin: 10px;
+}
+
+/* LINK */
+
+.social {
+  padding: 0;
+  display: flex;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  list-style: none;
+  /* background-color: #94b8b8; */
+  justify-content: center;
+  flex-direction: column;
+}
+
+.social-media {
+  margin-bottom: 5%;
+}
+
+.social-media a {
+  padding: 2%;
+  width: 10%;
+}
+
+.social-media a :hover {
+  height: "40px";
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+
+/* FOOTER */
+
+footer p {
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #1b5a5a;
+  color: aliceblue;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 800px) {
+  .albums boxes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .discography-box img {
+    width: 15%;
+    margin: 15px;
+    border-style: groove;
+    border-radius: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  #icons {
+    display: block;
+    margin-left: 90%;
+    position: fixed;
+  }
+  #icons:before {
+    content: "\2630";
+  }
+
+  .active:before {
+    content: "\2715";
+    padding-left: 10px;
+  }
+
+  nav ul {
+    position: fixed;
+    left: -200%;
+    top: 5%;
+    flex-direction: column;
+    background-color: #538585;
+    width: 100%;
+    text-align: center;
+    transition: 0.25s;
+    margin: 0;
+  }
+
+  nav li {
+    padding: 3px 0;
+  }
+
+  nav li:hover {
+    background-color: skyblue;
+  }
+
+  nav.active ul {
+    left: 0;
+  }
+}

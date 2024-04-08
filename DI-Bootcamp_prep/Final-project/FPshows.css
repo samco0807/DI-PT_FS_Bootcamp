@@ -1,0 +1,145 @@
+div {
+    display: block;
+    unicode-bidi: isolate;
+
+
+}
+
+.elementor-2014 .elementor-element.elementor-element-a30f915 {
+    --grid-columns: 3;
+}
+
+.elementor-element {
+    --widgets-spacing: 20px 20px;
+}
+
+.elementor-element, .elementor-lightbox {
+    --swiper-theme-color: #000;
+    --swiper-navigation-size: 44px;
+    --swiper-pagination-bullet-size: 6px;
+    --swiper-pagination-bullet-horizontal-gap: 6px;
+}
+
+.elementor-element {
+    --flex-direction: initial;
+    --flex-wrap: initial;
+    --justify-content: initial;
+    --align-items: initial;
+    --align-content: initial;
+    --gap: initial;
+    --flex-basis: initial;
+    --flex-grow: initial;
+    --flex-shrink: initial;
+    --order: initial;
+    --align-self: initial;
+}
+
+.elementor-2014 .elementor-element.elementor-element-a30f915 {
+    --grid-columns: 3;
+}
+
+.elementor-element {
+    --widgets-spacing: 20px 20px;
+}
+
+:root {
+    --wd-header-el-font: "Noto Sans Hebrew", Arial, Helvetica, sans-serif;
+    --wd-header-el-font-weight: 300;
+    --wd-header-el-transform: uppercase;
+    --wd-header-el-font-size: 16px;
+}
+
+:root {
+    --wd-widget-title-font: "Noto Sans Hebrew", Arial, Helvetica, sans-serif;
+    --wd-widget-title-font-weight: 600;
+    --wd-widget-title-transform: uppercase;
+    --wd-widget-title-color: #333;
+    --wd-widget-title-font-size: 16px;
+}
+
+:root {
+    --wd-alternative-font: "Noto Sans Hebrew", Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --wd-entities-title-font: "Noto Sans Hebrew", Arial, Helvetica, sans-serif;
+    --wd-entities-title-font-weight: 500;
+    --wd-entities-title-color: #333333;
+    --wd-entities-title-color-hover: rgb(51 51 51 / 65%);
+}
+
+:root {
+    --wd-title-font: "Noto Sans Hebrew", Arial, Helvetica, sans-serif;
+    --wd-title-font-weight: 600;
+    --wd-title-color: #242424;
+}
+
+:root {
+    --wd-text-font: "Noto Sans Hebrew", Arial, Helvetica, sans-serif;
+    --wd-text-font-weight: 400;
+    --wd-text-color: #777777;
+    --wd-text-font-size: 16px;
+}
+
+:root {
+    --wd-text-line-height: 1.6;
+    --wd-brd-radius: .001px;
+    --wd-form-height: 42px;
+    --wd-form-color: inherit;
+    --wd-form-placeholder-color: inherit;
+    --wd-form-bg: transparent;
+    --wd-form-brd-color: rgba(0, 0, 0, 0.1);
+    --wd-form-brd-color-focus: rgba(0, 0, 0, 0.15);
+    --wd-form-chevron: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiNiYmIiPjxwYXRoIGQ9Ik02IDlsNiA2IDYtNiIvPjwvc3ZnPg==);
+    --wd-main-bgcolor: #fff;
+    --wd-scroll-w: .001px;
+    --wd-admin-bar-h: .001px;
+    --wd-tags-mb: 20px;
+    --wd-block-spacing: 20px;
+    --color-white: #fff;
+    --color-gray-100: #f7f7f7;
+    --color-gray-200: #f1f1f1;
+    --color-gray-300: #bbb;
+    --color-gray-400: #a5a5a5;
+    --color-gray-500: #777;
+    --color-gray-600: #666;
+    --color-gray-700: #555;
+    --color-gray-800: #333;
+    --color-gray-900: #242424;
+    --bgcolor-white-rgb: 255, 255, 255;
+    --bgcolor-white: #fff;
+    --bgcolor-gray-100: #f7f7f7;
+    --bgcolor-gray-200: #f7f7f7;
+    --bgcolor-gray-300: #f1f1f1;
+    --brdcolor-gray-200: rgba(0, 0, 0, 0.075);
+    --brdcolor-gray-300: rgba(0, 0, 0, 0.105);
+    --brdcolor-gray-400: rgba(0, 0, 0, 0.12);
+    --brdcolor-gray-500: rgba(0, 0, 0, 0.2);
+}
+
+html {
+    line-height: 1;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-family: sans-serif;
+}
+
+:root {
+    --page-title-display: block;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.elementor *, .elementor :after, .elementor :before {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
