@@ -1,28 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
+/* GENERAL */
 * {
   font-family: "Playfair Display", serif;
+  margin: 0;
 }
 
-/* NAV BAR */
+h2 {
+  text-align: center;
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
+/* NAVBAR */
 nav {
   display: flex;
-  margin: 0;
-  padding: 0;
+  margin: auto;
+  padding: auto;
   text-align: center;
   text-decoration: none;
   list-style: none;
-  background-color: #538585;
+  background-color: rgb(7, 8, 8);
   justify-content: space-between;
-  height: 5vh;
+  height: 10%;
   align-items: center;
-  font-size: calc(1% + 1.5vw);
+  font-size: 200%;
 }
 
 nav ul {
-  height: 50%;
-  padding: 0;
+  height: auto;
+  padding: auto;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -32,25 +40,37 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: aliceblue;
   padding: 0 20px;
   font-weight: bold;
   text-align: center;
 }
 
-nav li:hover {
-  transition: 0.2s;
-  font-size: 25px;
-  color: rgb(24, 110, 118);
-  background-color: antiquewhite;
+nav li{
+  padding-left: 1%;
+  padding-right: 1%;
+  background-color:rgb(7, 8, 8);
 }
 
-h2 {
-  text-align: center;
-  margin: 0;
-  padding-top: 50px;
-  padding-bottom: 50px;
+nav li:hover {
+  transition: 0.2s;
+  font-size: 100%;
+  background-color: rgb(228, 232, 235);
+  display:inline;
 }
+
+.nav-item .nav-link {
+color: antiquewhite;
+}
+
+.nav-item:hover .nav-link:hover {
+color: rgb(7, 8, 8);
+}
+
+.dropdown-item {
+  font-size: 1em;
+}
+
+
 
 #icons {
   cursor: pointer;
@@ -123,14 +143,11 @@ height: 1000px; /* Set the height of the image container */
   font-size: 20px;
   line-height: 30px;
 }
+
 span a {
   color: blue;
   font-size: 20px;
 }
-
-/* CAROUSSEL DISCOGRAPHY */
-
-
 
 /* DISCOGRAPHY */
 
@@ -224,18 +241,17 @@ ul.text {
 }
 
 /* AWARDS */
-
 .awards {
-  height: 700px;
-  /* background-color: antiquewhite; */
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding-bottom: 40px;
 }
 
 .awards-awards {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 600px;
-  /* background-color: antiquewhite; */
 }
 
 .prices {
@@ -243,31 +259,6 @@ ul.text {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  height: 600px;
-}
-
-.awards-box {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4%;
-  /* background-color: #94b8b8; */
-  margin: 5px 40px;
-  /* color: antiquewhite; */
-  flex-wrap: wrap;
-  width: 14%;
-  height: 450px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.323);
-  /* color: black; */
-}
-
-.awards img {
-  display: flex;
-  flex-wrap: wrap;
-  width: 80%;
-  margin: 20px 20px;
-  border-radius: 100%;
 }
 
 .awards-box ul {
@@ -276,25 +267,7 @@ ul.text {
   font-size: large;
 }
 
-/* NEWSLETTER */
-
-.newsletter {
-  display: grid;
-  margin-bottom: 50px;
-  margin-top: 50px;
-}
-
-.newsletter-container {
-  display: grid;
-  justify-items: center;
-}
-
-input#submit {
-  margin: 10px;
-}
-
-/* LINK */
-
+/* SOCIAL MEDIA */
 .social {
   padding: 0;
   display: flex;
@@ -308,16 +281,21 @@ input#submit {
 }
 
 .social-media {
-  margin-bottom: 5%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 100px;
+  width: 100%;
+
 }
 
 .social-media a {
   padding: 2%;
   width: 10%;
+  display: inline-block;
 }
 
-.social-media a :hover {
-  height: "40px";
+.social-media a:hover {
+  height: 0px;
   transform: scale(1.1);
   transition: 0.1s;
 }

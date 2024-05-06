@@ -1,0 +1,45 @@
+.wrapper {
+    display: grid;
+    grid-template-rows: repeat(8, 80px);
+    grid-template-areas:
+    "a a a a a"
+    "b b c c c"
+    "b b c c c"
+    "d d c c c"
+    "d d e e e"
+    "d d e e e"
+    "f f f f g"
+    "h h h h h";
+    gap: 10px;
+
+}
+
+
+
+.header {
+    background-color: aqua;
+}
+
+.hero{
+    background-color: pink;
+}
+.main-content {
+    background-color: yellow;
+}
+.sidebar{
+    background-color: green;
+}
+
+.extra-content {
+    background-color: gray;
+}
+.related-images{
+    background-color: green;
+}
+.related-posts{
+    background-color: violet;
+}
+
+.footer{
+    background-color: orange;
+}

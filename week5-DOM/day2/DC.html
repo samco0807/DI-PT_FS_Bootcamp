@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Challenge: Mad Libs</title>
+  </head>
+  <body>
+    <h1>Mad Libs</h1>
+
+    <form id="libform">
+      <label for="noun">Noun:</label><input type="text" id="noun" /><br />
+      <label for="adjective">Adjective:</label
+      ><input type="text" id="adjective" /><br />
+      <label for="person">Someone's Name:</label
+      ><input type="text" id="person" /><br />
+      <label for="verb">Verb:</label><input type="text" id="verb" /><br />
+      <label for="place">A place:</label><input type="text" id="place" /><br />
+      <button id="lib-button">Lib it!</button>
+    </form>
+
+    <p>
+      Generated story:
+      <span id="story"></span>
+    </p>
+
+    <script>
+      // select buttons
+      const form = document.querySelector("form");
+      
+      const story=document.querySelector("#story")
+  
+      button.addEventListener("submit", (e)=>{
+        e.preventDefault()
+        const noun = document.querySelector("#noun").target.value;
+      const adjective = document.querySelector("#adjective").target.value;
+      const person = document.querySelector("#person").target.value;
+      const verb = document.querySelector("#verb").target.value;
+      const place = document.querySelector("#place").target.value;
+        if (noun=="" || adjective=="" || person=="" || verb=="" || place=="") {
+        alert("the Value cannot be empty")
+        }
+        else if (typeof noun !=="string" || typeof adjective!=="string" || typeof person!=="string" || typeof verb!=="string" || typeof place!=="string") {
+          alert("the values can only be strings")
+        }
+       else { 
+      story.textContent=`${noun} ${adjective} ${person} ${verb}${place}`
+    }
+      });
+
+const shuffleButton=document.createElement("button")
+shuffleButton.innerText="Shuffle"
+shuffleButton.appendChild(form)
+
+
+</script>
+  </body>
+</html>

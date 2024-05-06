@@ -1,0 +1,103 @@
+
+main{
+    width: 100%;
+    height: 800px;
+}
+.row1{
+    width: 100%;
+    height: 500px;
+    align-items: center;
+    padding: 0 20%;
+}
+section{
+    position: relative;
+    float: left;
+    width: 250px;
+    height: 350px;
+    padding: 30px;
+    
+}
+
+.circlegreen{
+    border-radius: 100%;
+    background-color: rgb(133, 182, 182);
+    text-decoration: none;
+    font-size: 18px;
+    position: absolute;
+    top:50px;
+    left: 50px;
+    text-align: center;
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    line-height: 45px; 
+}
+
+.circlered{
+    background-color: brown;
+    border-radius: 100%;
+    text-decoration: none;
+    font-size: 20px;
+    position: absolute;
+    top:50px;
+    left: 200px;
+    text-align: center;
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    line-height: 45px; 
+}
+
+img{
+    
+    float: left;
+    width: 250px;
+    padding: 20px;
+}
+
+
+p{
+    display: block;
+    position: absolute;
+    top: 360px;
+    left: 80px;
+    padding: 20px;
+}
+
+#price{
+    color: green;
+    font-weight: bold;
+    position: absolute;
+    top: 38%;
+    left: 8%;
+    padding: 0 10px;
+    align-items: center;
+    top: 390px;
+    left: 80px;
+    padding: 20px;
+    
+}
+
+span{
+    text-decoration: line-through;
+    font-weight: lighter;
+    color:grey;
+    font-size: small;
+    padding: 10px;
+
+}
+
+button{
+    text-transform: uppercase;
+    font-weight: bold;
+    position: absolute;
+    top: 450px;
+    left: 100px;
+    padding: 10px;
+    border: 1px solid #8296AB;
+    border-radius: 2px;
+    
+    
+}

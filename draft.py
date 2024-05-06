@@ -255,19 +255,212 @@ my_username="Samuel"
 
 # The key is the product, the value is the price
 
-items = {
-  "Water": "$1",
-  "Bread": "$3",
-  "TV": "$1,000",
-  "Fertilizer": "$20"
-}
+# Shop with the articles
+# products = {
+#   "Water": "$1",
+#   "Bread": "$3",
+#   "TV": "$1,000",
+#   "Fertilizer": "$20"
+# }
 
-wallet = "$300"
-wallet_int=int(wallet)
-product=[]
-for item in items:
-    if item[value]<wallet_int:
-        dict[item]=[product]
-        print(product)
-    else:
-        print("the item is too expensive for you")
+# money = "$300"
+# # convert prices without currency and comma
+# wallet=int(money[1:].replace(",",""))
+
+# # Create an empty array to store the affordable products
+# basket=[]
+
+# # For every item of the products dictionary
+# for item, value in products.items():
+#   price=int(value[1:].replace(",","")) # convert prices without currency and comma
+#   if price<=wallet: # if the value of the key is less or equal to the wallet
+#     basket.append(item) # Add the product in the basket array
+#   elif price>wallet: # if the value of the product is too expensive
+#     print("the item is too expensive for you")
+#   else: # if all the products are too expensive
+#     print("you cannot buy anything from the store")
+
+# print(basket)
+
+# def favorite_book(title):
+#   print(f"My favorite book is {title}.")
+
+# favorite_book("Harry Potter")
+
+# def make_shirt1(size, message):
+#   print(f"The size of the shirt is {size} and the text is '{message}'.")
+
+# # make_shirt(16, "Am Israel Hai")
+
+# def make_shirt2(size="L", message="I love Python"):
+#   print(f"The size of the shirt is {size} and the text is '{message}'.")
+
+
+
+# def make_shirt(size, message):
+#   print(f"The size of the shirt is {size} and the text is '{message}'.")
+
+# make_shirt(size="L", message="I love Python")
+
+# magician_names = ['Harry Houdini', 'David Blaine', 'Criss Angel']
+
+# def show_magicians():
+#   for name in magician_names:
+#     print(name)
+
+# show_magicians()
+
+# def make_great():
+#   phrase="The Great "
+#   for name in range(len(magician_names)) :
+#     magician_names[name]=phrase+magician_names[name]
+#     print(magician_names)
+
+# make_great()
+
+# from random import randint
+
+# def get_random_temp():
+#   number = randint(-10,40)
+
+#   return f"{number}\u00b0C"
+
+# print(get_random_temp())
+
+# def main():
+#   temperature=get_random_temp()
+#   return f"The temperature right now is {temperature} degrees Celcius"
+#   if temperature<0:
+#     return "Brrr, that’s freezing! Wear some extra layers today"
+#   elif 0<=temperature<16:
+#     return "Quite chilly! Don’t forget your coat"
+#   elif 16<=temperature<23:
+#     return "Too cold for the beach!"
+#   elif 24<temperature<32:
+#     return "Amesome weather! Enjoy!"
+#   else:
+#     return "Think about drinking!"
+
+# def get_random_temp2(season):
+#   number=0
+#   if season=="winter": 
+#     number = randint(-10,16)
+#   elif season=="spring" or season=="autumn":
+#     number = randint(15,25)
+#   elif season=="summer": 
+#     number = randint(25,32)
+#   else:
+#     return "The season is not recognized. Enter a season:"
+
+# (get_random_temp2())
+
+# def main2():
+#   userinput=input("Enter a season: ")
+#   temperature=get_random_temp2()
+#   print(f"The temperature right now is {temperature} degrees Celcius")
+#   if temperature<0:
+#     print ("Brrr, that’s freezing! Wear some extra layers today")
+#   elif 0<=temperature<16:
+#     print ("Quite chilly! Don’t forget your coat")
+#   elif 16<=temperature<23:
+#     print ("Too cold for the beach!")
+#   elif 24<temperature<32:
+#     print ("Amesome weather! Enjoy!")
+#   else:
+#     print ("Think about drinking!")
+
+# main2()
+
+# correct_count=0
+# wrong_count=0
+# wrong_answers=[]
+
+# def quizz():
+  
+#   for question_data in data:
+#     question_to_user=question_data['question']
+#     correct_answer_to_question=question_data['answer']
+#     user_answer=input(f"{question_to_user}: ")
+#     if user_answer.lower() !=correct_answer_to_question.lower() :
+#       print("False")
+#       wrong_answers.append(user_answer)
+#       wrong_count+=1
+#     else:
+#       print("Good job!")
+#       correct_count+=1
+
+# def answers():
+#     quizz()
+#     return correct_count, wrong_count
+
+# class Dog():
+
+#     def __init__(self, name, height):
+#         self.name=name
+#         self.height=height
+
+#     def bark(self):
+#         print(f"{self.name} goes woof")
+    
+#     def jump(self):
+#         self.x=height*2
+#         print(f"{self.name} jumps {self.x}cm high!")
+
+# davids_dog=Dog("Rex", 50)
+# print(f"David's dog is {davids_dog.name} and {davids_dog.height}cm")
+
+# davids_dog.bark()
+# davids_dog.jump()
+
+
+# sarahs_dog=Dog("Teacup",20)
+# print(f"Sarah's dog is {sarahs_dog.name} and {sarahs_dog.height}cm")
+
+# sarahs_dog.bark()
+# sarahs_dog.jump()
+
+# if sarahs_dog.height>davids_dog.height:
+#     print(f"{sarahs_dog.name} is taller than David's")
+# else:
+#     print(f"{davids_dog.name} is taller than Sarah's")
+
+# class Song():
+
+#     def __init__(self, lyrics):
+#         self.lyrics=[]
+
+#     def sing_me_a_song(self):
+#         song=",\n".join(lyrics)
+#         print(song)
+        
+# stairway= Song(["There’s a lady who's sure","all that glitters is gold", "and she’s buying a stairway to heaven"])
+# stairway.sing_me_a_song()
+
+class Zoo():
+    
+    def __init__(self, zoo_name):
+        self.zoo_name=zoo_name
+        animals=[]
+    
+    def add_animal(self, new_animal):
+        self.new_animal=new_animal
+        print(animal)
+    
+    def sell_animal(self, animal_sold):
+        self.animal_sold=animal_sold
+        if animal in animals:
+            animals-=animal_sold
+            print(animals)
+        else:
+            print(f"The {animal_sold} is not is the animals")
+
+    def sort_animals(self, sort_animals):
+        animals.sort()
+        for animal in animals:
+            animal[0].dict()
+    
+    ramat_gan_safari=Zoo(Giraffe)
+
+
+
+

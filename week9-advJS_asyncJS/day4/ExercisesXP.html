@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Ex 1: -->
+    <form action="http://127.0.0.1:5500/draft.html" method="get">
+      <label for="name">Name</label><br />
+      <input type="text" name="filename" value="John" /><br />
+      <label for="comments">Comments</label><br />
+      <textarea name="Comments" id="" cols="30" rows="10">
+    Hello this is a comment</textarea
+      ><br />
+      <button type="submit">Send</button>
+    </form>
+
+    <!-- Where will the sent data appear? in the URL -->
+
+    <!-- Ex 2: -->
+    <form action="http://127.0.0.1:5500/draft.html" method="post">
+      <label for="name">Name</label><br />
+      <input type="text" name="example" value="John" /><br />
+      <label for="comments">Comments</label><br />
+      <textarea name="Comments" id="" cols="30" rows="10">
+            Hello this is a comment</textarea
+      ><br />
+      <button type="submit">Send</button>
+    </form>
+
+    <script>
+      // Exercise3
+      const marioGame = {
+    detail : "An amazing game!",
+    characters : {
+        mario : {
+          description:"Small and jumpy. Likes princesses.",
+          height: 10,
+          weight: 3,
+          speed: 12,
+        },
+        bowser : {
+          description: "Big and green, Hates princesses.",
+          height: 16,
+          weight: 6,
+          speed: 4,
+        },
+        princessPeach : {
+          description: "Beautiful princess.",
+          height: 12,
+          weight: 2,
+          speed: 2,
+        }
+    },
+  }
+  
+  const jsonObject = JSON.stringify(marioGame). 
+  // The nested object is converted automatically
+  
+  JSON.parse(marioGame)
+  jsonObject = JSON.stringify(marioGame,null, 2 )
+    </script>
+  </body>
+</html>

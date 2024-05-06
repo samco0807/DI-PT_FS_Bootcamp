@@ -1,0 +1,35 @@
+p{
+    border-style: dashed;
+    
+}
+
+div{
+    width: 40px;
+    height: 100px;
+    position:sticky;
+    
+}
+
+#container{
+    width: 100px;
+    height: 200px;
+    background-color: aqua;
+    position:sticky;
+}
+#red{
+    
+    background-color: red; 
+    position: relative;
+    top: 10px;
+}
+
+#blank{
+    background-color: white;
+}
+
+#blue{
+    background-color:blue;
+    position: relative;
+    top:-50px;
+    
+}

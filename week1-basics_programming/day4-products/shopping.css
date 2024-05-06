@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+}
+
+nav{
+    background-color: black;
+    width: 100vw;
+    height: 7vh;
+    text-align: center;
+    align-items: center;
+    position:fixed;
+}
+
+nav i{
+    width: 5vw;
+    margin-right: 70%;
+    color: white;
+    font-size: 45px;
+    align-items: center;
+    padding-top: 10px;
+}
+
+nav a{
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 0 10px;
+    
+    
+}
+
+nav a:hover{
+    color: yellow;
+    
+}
+
+
+
+main{
+    width: 100%;
+    height: 900px;
+}
+
+footer{
+    text-align: center;
+}

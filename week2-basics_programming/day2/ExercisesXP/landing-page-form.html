@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(32, 143, 117);
+        color: azure;
+      }
+
+      nav button {
+        margin-left: 10px;
+        background-color: rgb(21, 142, 63);
+        border-radius: 10px;
+        font-size: 100%;
+        width: 12%;
+        height: 40px;
+        color: azure;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .general {
+        background-color: aquamarine;
+        margin-top: 1%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      form {
+        background-color: aquamarine;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(4, 80px);
+        grid-template-areas:
+          "a b c"
+          "d e f"
+          "g g g"
+          "h h h"
+          "i i i"
+          "j j j";
+        align-items: center;
+        gap: 10px;
+        padding-left: 30%;
+        padding-right: 30%;
+      }
+
+      .a {
+        display: grid;
+        grid-area: a;
+        justify-items: start;
+      }
+
+      .b {
+        display: grid;
+        grid-area: b;
+        justify-items: start;
+      }
+      .c {
+        display: grid;
+        grid-area: c;
+        justify-items: start;
+      }
+      .d {
+        display: grid;
+        grid-area: d;
+        justify-items: start;
+      }
+      .e {
+        display: grid;
+        grid-area: e;
+        justify-items: start;
+      }
+      .f {
+        display: grid;
+        grid-area: f;
+        justify-items: start;
+      }
+
+      .g {
+        display: grid;
+        grid-area: g;
+      }
+      .h {
+        display: grid;
+        grid-area: h;
+        padding-top: 1%;
+        padding-bottom: 1%;
+      }
+      .i {
+        display: grid;
+        grid-area: i;
+        padding-top: 1%;
+        padding-bottom: 1%;
+      }
+
+      select {
+        height: 150%;
+      }
+
+      .j {
+        display: flex;
+        grid-area: j;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        align-items: center;
+      }
+
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aquamarine;
+      }
+
+      input {
+        border-radius: 5px;
+        height: 25px;
+      }
+
+      .lab {
+        padding-bottom: 3%;
+      }
+
+      #btn {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border-radius: 10px;
+        font-size: 1rem;
+        width: 15%;
+        height: 40px;
+        background-color: rgb(21, 142, 63);
+        color: azure;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <h3>UNBURDEN YOURSELF FROM THE WEIGHT OF EMAIL OVERLOAD!</h3>
+      <button type="button">LEARN HOW</button>
+    </nav>
+
+    <div class="general">
+      <h1>DOWNLOAD NOW</h1>
+
+      <form action="">
+        <div class="a">
+          <label class="lab" for="firstName">FIRSTNAME*</label>
+          <input type="text" name="firstName" id="firstName" />
+        </div>
+        <div class="b">
+          <label class="lab" for="lastName">LASTNAME*</label>
+          <input type="text" name="lastName" id="lastName" />
+        </div>
+        <div class="c">
+          <label class="lab" for="email">EMAIL*</label>
+          <input type="email" name="email" id="email" />
+        </div>
+
+        <div class="d">
+          <label class="lab" for="phoneNumber">PHONE NUMBER*</label>
+          <input type="number" name="phoneNumber" id="phoneNumber" />
+        </div>
+        <div class="e">
+          <label class="lab" for="websiteUrl">WEBSITE URL*</label>
+          <input type="text" name="websiteUrl" id="websiteUrl" />
+        </div>
+
+        <div class="f">
+          <label class="lab" for="companyName">COMPANY NAME*</label>
+          <input type="text" name="companyName" id="companyName" />
+        </div>
+
+        <div class="g">
+          <label class="lab" for="question"
+            >HOW MANY EMPLOYEES WORK THERE?*</label
+          >
+          <select name="question" id="question">
+            <option value="">- PLEASE SELECT -</option>
+            <option value="">500</option>
+            <option value="">1000</option>
+            <option value="">2000</option>
+            <option value="">+3000</option>
+          </select>
+        </div>
+
+        <div class="h">
+          <ul>
+            DOES YOUR COMPANY SELL:
+            <li>WEB DESIGN</li>
+            <li>ONLINE MARKETING</li>
+            <li>SEO SEM</li>
+            <li>ADVERTISING AGENCY SERVICES</li>
+          </ul>
+        </div>
+
+        <div class="i">
+          <label class="lab" for="agency">ADVERTISING AGENCY SERVICES*</label>
+          <select name="agency" id="agency">
+            <option value="">- PLEASE SELECT -</option>
+            <option value="">WEB DESIGN</option>
+            <option value="">SEO</option>
+            <option value="">REFERNCING</option>
+            <option value="">OTHER</option>
+          </select>
+        </div>
+
+        <div class="j">
+          <input type="checkbox" name="checkbox" id="" />
+          <label for="checkbox">SUBSCRIBE TO HUBSPOT MARKETING BLOG</label>
+        </div>
+      </form>
+
+      <div class="btn">
+        <button type="button" id="btn">DOWNLOAD NOW</button>
+      </div>
+    </div>
+  </body>
+</html>

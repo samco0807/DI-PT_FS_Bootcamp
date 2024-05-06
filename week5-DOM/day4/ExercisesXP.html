@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+        p {
+          background: yellow;
+          color: red;
+        }
+        #container {
+          width: 400px;
+          height: 400px;
+          position: relative;
+          background: yellow;
+        }
+        #animate {
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          background-color: red;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+        <button id="clear" onclick="myStopFunction()">Clear Interval</button>
+
+        <p><button onclick="myMove()">Click Me</button></p>
+        <div id="container">
+          <div id="animate"></div>
+        </div>
+        <script>
+            // Exercise1
+            setTimeout(() => {
+                const text="Hello World"
+                alert(text)
+                const div=document.querySelector("div")
+
+                let paragraph=document.createElement("p")
+                paragraph.innerText=text
+                
+                div.appendChild(paragraph)
+
+                setInterval(() => {
+                
+            }, 2000);
+
+            clearInterval(2000)
+
+            }, 2000);
+        
+            // Exercise2
+            let varAnimate=document.querySelector("#animate")
+
+           setInterval(() => {
+            let timePassed= Date.now()-start
+            varAnimate.addEventListener("click", (e)=>{
+                varAnimate.style.left=timePassed/5 + 'px'
+            })
+           }, 1);
+           
+        </script>
+    </body>
+    </html>

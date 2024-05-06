@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <form action="">
+      <input type="text" id="name" name="example" value="John"/>
+      <input type="text" id="lastname" name="example" value="Doe"/>
+      <button type="submit">Send</button>
+      <div id="output"></div>
+    </form>
+
+    <script>
+      function submitForm() {
+    const name=document.getElementById("name").value
+    const lastName=document.getElementById("lastname").value
+}
+
+const formData={
+    name:name,
+    lastName:lastName
+};
+
+// const formObject= document.querySelectorAll("form")
+// console.log(formObject);
+
+const jsonString=JSON.stringify(formObject)
+
+document.getElementById("ouput").innerHTML=`<p>${jsonString}</p>`
+    </script>
+  </body>
+</html>
