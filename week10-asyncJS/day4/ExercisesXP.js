@@ -23,22 +23,25 @@ const fetchExercice = () => {
 fetchExercice()
 
 // Exercice2:
-const apiKey="https://api.giphy.com/v1/gifs/trending"
+const apiKey=""
 const searchTerm="sun"
 const limit=10
 const startPosition=2
 
-const apiUrl=`https://api.giphy.com/v1/gifs/${apiKey} ${searchTerm} ${limit} ${startPosition}`
+const apiUrl=`https://api.giphy.com/v1/gifs/seach?q=${searchTerm}&api_key=${apiKey}&limit=${limit}&offset=${startPosition}`
 
 
-const exercice2=async()=>{
-try {
-    let response=await fetch('api.giphy.com/v1/gifs/trending')
-
-} catch (error) {
-    
+const fetchGifts=async()=>{
+    try{
+    const response=await fetch(apiUrl)
+    if (response.ok=false){
+throw new Error=("Network response was not ok")
+      } const data = await response.json()
+        console.log(data);
+    } catch (error) {
+    console.log("Here is the error", error);
 }
-}
+};
 
 // Exercise3:
 const exercice3test1 = async () => {

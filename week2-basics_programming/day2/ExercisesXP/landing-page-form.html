@@ -20,7 +20,8 @@
 
       nav button {
         margin-left: 10px;
-        background-color: rgb(21, 142, 63);
+        background-color: rgb(32, 146, 187);
+        border-color: rgb(32, 146, 187);
         border-radius: 10px;
         font-size: 100%;
         width: 12%;
@@ -32,15 +33,24 @@
         text-align: center;
       }
 
+      .background-img {
+        background-image: url("https://previews.123rf.com/images/denispc/denispc1303/denispc130300073/18452267-ville-de-dessin-anim%C3%A9-color%C3%A9-avec-des-maisons-et-des-b%C3%A2timents.jpg");
+        position: fixed;
+        opacity: 0.4;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+      }
+
       .general {
-        background-color: aquamarine;
+        position: relative;
         margin-top: 1%;
         padding-top: 10px;
         padding-bottom: 10px;
+        z-index: 1;
       }
 
       form {
-        background-color: aquamarine;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: repeat(4, 80px);
@@ -122,7 +132,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: aquamarine;
       }
 
       input {
@@ -141,7 +150,8 @@
         font-size: 1rem;
         width: 15%;
         height: 40px;
-        background-color: rgb(21, 142, 63);
+        background-color: rgb(32, 146, 187);
+        border-color: rgb(32, 146, 187);
         color: azure;
       }
     </style>
@@ -154,6 +164,7 @@
     </nav>
 
     <div class="general">
+      <div class="background-img"></div>
       <h1>DOWNLOAD NOW</h1>
 
       <form action="">
@@ -172,7 +183,7 @@
 
         <div class="d">
           <label class="lab" for="phoneNumber">PHONE NUMBER*</label>
-          <input type="number" name="phoneNumber" id="phoneNumber" />
+          <input type="tel" name="phoneNumber" id="phoneNumber" />
         </div>
         <div class="e">
           <label class="lab" for="websiteUrl">WEBSITE URL*</label>

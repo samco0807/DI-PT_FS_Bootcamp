@@ -8,9 +8,24 @@
       body {
         margin: 0;
         padding: 0;
-        background-image: url('https://img.freepik.com/free-photo/network-with-pins_93675-128791.jpg?w=1380&t=st=1714914762~exp=1714915362~hmac=0b411bc517c6a22b71456eccc214956e40522ca2c45d51845cdbe780aa0554e2');
+      }
+
+      .background-img {
+        background-image: url("https://img.freepik.com/free-photo/network-with-pins_93675-128791.jpg?w=1380&t=st=1714914762~exp=1714915362~hmac=0b411bc517c6a22b71456eccc214956e40522ca2c45d51845cdbe780aa0554e2");
         background-size: cover;
-        opacity: 0.9;
+        position: fixed;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .content {
+        color: black;
+        position: relative;
+        z-index: 1;
       }
 
       h1 {
@@ -19,6 +34,7 @@
 
       h6 {
         text-align: center;
+        margin: 2%;
       }
 
       #container-numbers {
@@ -36,7 +52,7 @@
         align-items: center;
       }
 
-      .numbers p{
+      .numbers p {
         font-size: 2rem;
         margin: 1%;
       }
@@ -48,7 +64,6 @@
         width: 100%;
         justify-content: space-around;
         border: 2px solid black;
-
       }
       .description {
         width: 25%;
@@ -58,81 +73,117 @@
         align-items: center;
       }
 
-      .two{
+      .two {
         margin-top: 15%;
       }
-      .three{
+      .three {
         margin-top: 5%;
       }
-      
-      .text{
+
+      .text {
         padding: 5%;
+        font-size: 1rem;
       }
 
-      .one .par{
+      .one .par {
         background-color: red;
         width: 100%;
         text-align: center;
-
       }
-      .two .par{
+      .two .par {
         background-color: aqua;
         width: 100%;
         text-align: center;
-
       }
-      .three .par{
+      .three .par {
         background-color: purple;
         width: 100%;
         text-align: center;
       }
 
+      img {
+        border-radius: 50%;
+        position: relative;
+        top: -30px;
+      }
     </style>
   </head>
   <body>
-    <h1>
-      Shopify powers ambitious entrepreneurs all <br>
-      over the world
-    </h1>
+    <div class="background-img"></div>
+    <div class="content">
+      <h1>
+        Shopify powers ambitious entrepreneurs all <br />
+        over the world
+      </h1>
 
-    <div id="container-numbers">
-      <div class="numbers">
-        <p>500,000</p>
-        <h6>BUSINESS POWERED BY SHOPIFY</h6>
+      <div id="container-numbers">
+        <div class="numbers">
+          <p>500,000</p>
+          <h6>BUSINESS POWERED BY SHOPIFY</h6>
+        </div>
+        <div class="numbers">
+          <p>1,000,000+</p>
+          <h6>ACTIVER USERS</h6>
+        </div>
+        <div class="numbers">
+          <p>$46B+</p>
+          <h6>SOLD ON SHOPIFY</h6>
+        </div>
       </div>
-      <div class="numbers">
-        <p>1,000,000+</p>
-        <h6>ACTIVER USERS</h6>
-      </div>
-      <div class="numbers">
-        <p>$46B+</p>
-        <h6>SOLD ON SHOPIFY</h6>
-      </div>
-    </div>
-    <div id="container-description">
-      <div class="description one">
-        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae,
+      <div id="container-description">
+        <div class="description one">
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae,
             reprehenderit tempora est quas suscipit reiciendis quae fugiat odit
             repellendus saepe, dolore quam doloremque eaque ea voluptatum hic,
-            numquam alias. </p>
-            <img width="48" height="48" src="https://img.icons8.com/fluency/48/poker-face.png" alt="poker-face"/>
-        <div class="par"><p>Lorem ipsum dolor sit.</p></div>
-      </div>
-      <div class="description two">
-        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae,
-            reprehenderit tempora est quas suscipit reiciendis quae fugiat odit
-            repellendus saepe, dolore quam doloremque eaque ea voluptatum hic,
-            numquam alias. </p>
+            numquam alias.
+          </p>
 
-        <div class="par"><p>Lorem ipsum dolor sit.</p></div>
-      </div>
-      <div class="description three">
-        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae,
+          <div class="par">
+            <img
+              width="80"
+              height="80"
+              src="https://img.stablecog.com/insecure/256w/aHR0cHM6Ly9iLnN0YWJsZWNvZy5jb20vZjFiNmNiNzUtODM1NC00YjNjLTg1OTAtNTM4OGEyZmExZDI0LmpwZWc.webp"
+              alt="poker-face"
+            />
+            <p>Lorem ipsum dolor sit.</p>
+          </div>
+        </div>
+        <div class="description two">
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae,
             reprehenderit tempora est quas suscipit reiciendis quae fugiat odit
             repellendus saepe, dolore quam doloremque eaque ea voluptatum hic,
-            numquam alias. </p>
-        <div class="par"><p>Lorem ipsum dolor sit.</p></div>
-        
+            numquam alias.
+          </p>
+
+          <div class="par">
+            <img
+              width="80"
+              height="80"
+              src="https://img.stablecog.com/insecure/256w/aHR0cHM6Ly9iLnN0YWJsZWNvZy5jb20vZjFiNmNiNzUtODM1NC00YjNjLTg1OTAtNTM4OGEyZmExZDI0LmpwZWc.webp"
+              alt="poker-face"
+            />
+            <p>Lorem ipsum dolor sit.</p>
+          </div>
+        </div>
+        <div class="description three">
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae,
+            reprehenderit tempora est quas suscipit reiciendis quae fugiat odit
+            repellendus saepe, dolore quam doloremque eaque ea voluptatum hic,
+            numquam alias.
+          </p>
+          <div class="par">
+            <img
+              width="80"
+              height="80"
+              src="https://img.stablecog.com/insecure/256w/aHR0cHM6Ly9iLnN0YWJsZWNvZy5jb20vZjFiNmNiNzUtODM1NC00YjNjLTg1OTAtNTM4OGEyZmExZDI0LmpwZWc.webp"
+              alt="poker-face"
+            />
+            <p>Lorem ipsum dolor sit.</p>
+          </div>
+        </div>
       </div>
     </div>
   </body>
