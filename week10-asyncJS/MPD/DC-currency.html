@@ -13,73 +13,28 @@
     </style>
   </head>
   <body>
-    <h1>Currency Converter</h1>
+    <div class="container">
+      <div class="converter">
+        <h1>Currency Converter</h1>
 
-    <h4>From</h4>
+        <h2>From</h2>
 
-    <select name="initialCurrency" id="initialCurrency">
-      <option value="USD">USD - United States Dollars</option>
-      <option value="Euros">EUR - Euros</option>
-      <option value="NIS">NIS - New Israeli Shekel</option>
-    </select>
+        <select name="from" id="from">
+         
+        </select>
 
-    <h4>To</h4>
+        <h2>To</h2>
 
-    <select name="finalCurrency" id="finalCurrency">
-      <option value="USD">USD - United States Dollars</option>
-      <option value="Euros">EUR - Euros</option>
-      <option value="NIS">NIS - New Israeli Shekel</option>
-    </select>
-<section class="amount">
-    <h4>Amount:</h4>
-    <input type="number" name="amount" id="changeCurrency" />
-    <button type="button">Convert</button>
-</section>
+        <select name="to" id="to">
+          
+        </select>
 
-    <div class="result">
-      <output></output>
+        <h3>Amount:</h3>
+        <input type="text" name="amount" id="changeCurrency" />
+        <button type="button" id="convert">Convert</button>
+        <p></p>
+      </div>
     </div>
-
-    <script>
-        // create a function to retrieve currency code
-        const retrieveCurrency=async()=>{
-          const currencyCode="APIKEY";
-          const apiUrl=`https://v6.exchangerate-api.com/v6/${currencyCode}/last`;
-        }
-
-        //   function convert the currency amount
-          const convertCurrency=async()=>{
-              const initialCurrency=document.querySelector("#initialCurrency")
-              const finalCurrency=document.querySelector("#finalCurrency")
-              const inputAmount=document.getElementById("#amount")
-              inputAmount.target.value=retrieveCurrency().value
-
-          try {
-              const response=await fetch(apiUrl)
-              if (response.ok){
-                  const data=await response.json()
-              return data.result
-          } throw new Error("The currency does not exist")
-          } catch (error) {
-              console.log("Serveur error", error);
-          }
-      }
-
-    //   function to display the currency change in the DOM
-    const changeCurrency=async()=>{
-            // put the currency in a variable
-          const currency=await convertCurrency()
-        //   select the infos section to display the informations
-          const currencyAmount=document.querySelector("output")
-        //   insert the converted currency in the HTML
-          currencyAmount.innerHTML=`
-          <h4>currency: ${currency.currencyAmount}</h4>
-          `
-      }
-      
-      // Select the button and convert the currency
-      const button = document.querySelector("#changeCurrency");
-                button.addEventListener("click", changeCurrency);
-    </script>
+    <script src="DC-currency.js"></script>
   </body>
 </html>
