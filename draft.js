@@ -302,22 +302,19 @@
 //   }
 // };
 
-
 // // Exercise6:
 
 // // First function to calculate the cost of the Hotel
 
 // const oneNightCost = 140;
-// const oneDayRent = 40; 
+// const oneDayRent = 40;
 // const cities = { Paris: 220, London: 183, Other: 300 };
-
 
 // let numberOfNights = 0;
 // let destination = "";
 // let sumForTheHotel = 0;
 // let sumForThePlanetCost = 0;
 // let sumForTheRent = 0;
-
 
 // function hotelCost() {
 //     do {
@@ -341,20 +338,20 @@
 
 // function planeRideCost() {
 //     do {
-//         destination = prompt("Enter a city: "); 
+//         destination = prompt("Enter a city: ");
 //         if (typeof destination !== "string" || destination === null || destination.trim() === "") {
 //             alert("You must enter a string");
 //         }else if (cities[destination] === undefined) {
 //             alert("unknown city");
 //         }
-//     } while (typeof destination !== "string" || destination === null || destination.trim() === "" || cities[destination] === undefined);        
+//     } while (typeof destination !== "string" || destination === null || destination.trim() === "" || cities[destination] === undefined);
 //     return cities[destination] * numberOfNights;;
 // }
 
 // // Third function to calculate the cost of the car rent
 
 // function rentCost() {
-//     return numberOfNights * oneDayRent; 
+//     return numberOfNights * oneDayRent;
 // }
 
 // function main(){
@@ -446,28 +443,38 @@
 // let list=document.querySelector("ul")
 // list.appendChild(newListItem)
 
-// Exercice4:
-// Create the array with books infos
-let allBooks=[
-    {"title":"Harry Potter and The Chamber of Secret", "author":"JK Rowling", "alreadyRead":"True"},
-    {"title":"Harry Potter and The Goblet of Fire", "author":"JK Rowling", "alreadyRead":"False"},
-]
+// // Exercice4:
+// // Create the array with books infos
+// let allBooks=[
+//     {"title":"Harry Potter and The Chamber of Secret", "author":"JK Rowling", "alreadyRead":"True"},
+//     {"title":"Harry Potter and The Goblet of Fire", "author":"JK Rowling", "alreadyRead":"False"},
+// ]
 
-// select div from HTML
-let div=document.querySelector(".listBooks")
+// // select div from HTML
+// let div=document.querySelector(".listBooks")
 
-// Create table to insert
-// let table=document.createElement("table")
+// // Create table to insert
+// // let table=document.createElement("table")
 
-// Iterate through the array of books infos
-for (let book of allBooks){
-   let books=(`${book.title} written by ${book.author}, book cover: ${book.image}, Book read: ${book.alreadyRead}`)
-   
-// if the book is read, display the book infos in green
-   if (book.alreadyRead){
-    books.style.color="green"
-   }
-}
+// // Iterate through the array of books infos
+// for (let book of allBooks){
+//    let books=(`${book.title} written by ${book.author}, book cover: ${book.image}, Book read: ${book.alreadyRead}`)
 
-div.appendChild(books)
-div.innerHTML=<h1>Books</h1>
+// // if the book is read, display the book infos in green
+//    if (book.alreadyRead){
+//     books.style.color="green"
+//    }
+// }
+
+// div.appendChild(books)
+// div.innerHTML=<h1>Books</h1>
+
+// let bankAmount = 3900;
+// const VAT = 0.17;
+// let monthlyExpenses = ["+1400", "-89", "-8", "-2.56"];
+
+// monthlyExpenses = monthlyExpenses.map((expense) => expense * (VAT + 1));
+
+// bankAmount -= monthlyExpenses.reduce((acc, expense) => acc + expense, 0);
+
+// console.log(bankAmount);

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // EXERCISE1:
+
+      // #1
+      function funcOne() {
+        const a = 5;
+        if (a > 1) {
+          a = 3;
+        }
+        alert(`inside the funcOne function ${a}`);
+      }
+      // a=3, the value is updated to 3 is the if statement
+
+      // #1.1 - run in the console:
+      funcOne();
+      // 1.2 If const, we get an Error message because a is assigned to a const variable.
+
+      // #1.2 What will happen if the variable is declared
+      // with const instead of let ?
+
+      //#2
+      //const a = 0;
+      function funcTwo() {
+        a = 5;
+      }
+
+      function funcThree() {
+        alert(`inside the funcThree function ${a}`);
+      }
+
+      // #2.1 - run in the console:
+      funcThree();
+      funcTwo();
+      funcThree();
+      // #2.2 What will happen if the variable is declared
+      // with const instead of let ? we will have an error message because a has already been declared.
+
+      //#3
+      function funcFour() {
+        window.a = "hello";
+      }
+
+      function funcFive() {
+        alert(`inside the funcFive function ${a}`);
+      }
+
+      // #3.1 - run in the console:
+      funcFour();
+      funcFive();
+      // a=hello in the alert
+
+      //#4
+      //let a = 1;
+      function funcSix() {
+        let a = "test";
+        alert(`inside the funcSix function ${a}`);
+      }
+
+      // #4.1 - run in the console:
+      funcSix();
+      // #4.2 What will happen if the variable is declared
+      // with const instead of let ? Error because a has already been declared
+      // a=test in  the alert.
+
+      //#5
+      let a = 2;
+      if (true) {
+        let a = 5;
+        alert(`in the if block ${a}`); //5
+      }
+      alert(`outside of the if block ${a}`); //2
+
+      // #5.1 - run the code in the console
+      // #5.2 What will happen if the variable is declared
+      // with const instead of let ?
+
+      // EXERCISE2:
+      // Transform the winBattle() function to an arrow function.
+
+      let winBattle = () => {};
+
+      // winBattle () ? true : false;
+
+      // // Assign to this variable, a ternary operator. If winBattle() is true, the experiencePoints variable should be equal to 10, else the variable should be equal to 1.
+      const experiencePoints = winBattle() ? 10 : 1;
+      console.log(experiencePoints);
+
+      // // EXERCISE3:
+      // Write a JavaScript arrow function that checks whether the value of the argument passed, is a string or not. The function should return true or false.
+
+      let x;
+
+      let isString = (x) => {
+        if (typeof x === "string") {
+          console.log(true);
+        } else {
+          console.log(false);
+        }
+      };
+
+      // EXERCISE4:
+      const colors = [
+        "Blue",
+        "Green",
+        "Red",
+        "Orange",
+        "Violet",
+        "Indigo",
+        "Yellow",
+      ];
+
+      for (i = 0; i < colors.length; i++) {
+        console.log(`${i + 1} choice is ${colors[i]}`);
+      }
+
+      if (colors.includes("Violet")) {
+        console.log(true);
+      } else {
+        console.log(false);
+      }
+
+      // EXERCISE5:
+
+      // const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+      const ordinal = ["th", "st", "nd", "rd"];
+
+      for (
+        let i = 0, y = 0;
+        i < colors.length && y < ordinal.length;
+        i++, y++
+      ) {
+        console.log(`${i + 1}${ordinal[y + 1]} choice is ${colors[i]}`);
+      }
+
+      // EXERICSE6:
+      let bankAmount = 3900;
+      const VAT = 0.17;
+      let monthlyExpenses = ["+1400", "-89", "-8", "-2.56"];
+
+      monthlyExpenses = monthlyExpenses.map((expense) => expense * (VAT + 1));
+
+      bankAmount -= monthlyExpenses.reduce((acc, expense) => acc + expense, 0);
+
+      console.log(bankAmount);
+    </script>
+  </body>
+</html>
