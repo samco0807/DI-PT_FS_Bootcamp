@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Sans"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Game Javascript</title>
+    <style>
+      * {
+        font-family: "PT Sans", sans-serif;
+      }
+
+      body {
+        padding: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>MiniProject-PlayTheGame</h1>
+    <button onclick="playTheGame()">Click to play the game</button>
+
+    <script>
+      const playTheGame = () => {
+        let wantToPlay = confirm("Would you like to play the game?: ");
+        if (wantToPlay === false) {
+          alert("No problem, Goodbye");
+        } else {
+          let userAnswer = prompt("Enter a number between 0 and 10: ");
+          console.log(userAnswer);
+          if (userAnswer === "" || isNaN(userAnswer)) {
+            alert("Sorry Not a number, Goodbye");
+          } else if (userAnswer < 0 || userAnswer > 10) {
+            alert("Sorry it’s not a good number, Goodbye");
+          } else {
+            let computerNumber = Math.floor(Math.random() * 10) + 1;
+            console.log(computerNumber);
+          }
+        }
+      };
+
+      const compareNumbers = (userNumber, computerNumber) => {
+        if (userNumber == computerNumber) {
+          alert("WINNNER");
+        } else if (userNumber > computerNumber) {
+          alert("Your number is bigger then the computer’s, guess again");
+          prompt("Enter a new number: ");
+        } else {
+          alert("Your number is smaller then the computer’s, guess again");
+        }
+      };
+
+      for (let i = 0; i < 3; i++) {
+        playTheGame();
+      }
+      alert("out of chance");
+    </script>
+  </body>
+</html>
