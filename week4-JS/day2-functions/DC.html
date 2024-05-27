@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week4JS Day2 Daily Challenge</title>
+  </head>
+  <body>
+    <script>
+      // Ask user for words
+      let words = prompt("Enter words separated with comas: ");
+
+      // Create an array with words, separated by comas and removing blank spaces
+      wordsArray = words.split(",").map((word) => word.trim());
+      let maxLength = getMaxLength(wordsArray);
+
+      // loop to display a star if a word lengh > longest word length
+      for (let i = 0; i < words.length; i++) {
+        if (words[i].length > longestWord.length) {
+          console.log("*");
+        }
+      }
+
+      console.log(`\n ${words} \n`);
+
+      // Function to get the longest word lengh in an array
+      const getMaxLength = (words) => {
+        let maxLength = 0;
+        for (let word of words) {
+          if (word.length > maxLength) {
+            maxLength = word.length;
+          }
+        }
+        return maxLength;
+      };
+
+      // Function to display each word in a new line surrounded by stars
+      const displayWordsWithStars = (words) => {
+        //Divide le string in an array of words
+        let wordsArray = words.split(",").map((word) => word.trim());
+
+        // get the longest word lengh
+        let maxLength = getMaxLength(wordsArray);
+
+        // iterate each word
+        for (let word of wordsArray) {
+          // Calculate how many stars to display according to the longest word lengh
+          let starsCount = maxLength - word.length;
+          let stars = "*".repeat(starsCount);
+
+          // Display the word surrounded by stars
+          console.log(`${stars} ${word} ${stars}`);
+        }
+      };
+
+
+
+
+
+
+
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Ask user for words
+      let words = prompt("Enter words separated with commas: ");
+
+      // Create an array with words, separated by commas and removing blank spaces
+      let wordsArray = words.split(",").map((word) => word.trim());
+
+      // Function to get the length of the longest word
+      function getMaxLength(arr) {
+        return Math.max(...arr.map((word) => word.length));
+      }
+
+      let maxLength = getMaxLength(wordsArray);
+
+      // Function to print a line of stars
+      function printStarLine(length) {
+        console.log("*".repeat(length + 4)); // +4 to account for padding and stars
+      }
+
+      // Print the top line of stars
+      printStarLine(maxLength);
+
+      // Print each word with stars on the left and right
+      wordsArray.forEach((word) => {
+        let paddedWord = word.padEnd(maxLength, " "); // Pad the word to the right to ensure it fits within the maxLength
+        console.log(`* ${paddedWord} *`);
+      });
+
+      // Print the bottom line of stars
+      printStarLine(maxLength);
+    </script>
+  </body>
+</html>

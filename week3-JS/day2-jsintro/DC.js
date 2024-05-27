@@ -18,5 +18,5 @@ console.log(fruits);
 
 // Exercice2:
 const moreFruits = ["Banana", ["Apples", ["Oranges"], "Blueberries"]];
-accessBanana=moreFruits[1][1]
+let accessBanana=moreFruits[1][1]
 console.log(accessBanana);

@@ -23,7 +23,7 @@ if (newDog==="Chihuahua") {
 }
 
 // Exercise3
-const number=promppt("Enter a number: ")
+const number=prompt("Enter a number: ")
 const numberUser=parseInt(number)
 if (numberUser%2==0) {
     console.log(`${numberUser} is an even number`);
