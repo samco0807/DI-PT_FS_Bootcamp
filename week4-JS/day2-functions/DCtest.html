@@ -6,6 +6,7 @@
     <title>Document</title>
   </head>
   <body>
+    <h1>test</h1>
     <script>
       // Ask user for words
       let words = prompt("Enter words separated with commas: ");
@@ -14,14 +15,14 @@
       let wordsArray = words.split(",").map((word) => word.trim());
 
       // Function to get the length of the longest word
-      function getMaxLength(arr) {
+      const getMaxLength=(arr)=> {
         return Math.max(...arr.map((word) => word.length));
       }
 
       let maxLength = getMaxLength(wordsArray);
 
       // Function to print a line of stars
-      function printStarLine(length) {
+      const printStarLine= (length) => {
         console.log("*".repeat(length + 4)); // +4 to account for padding and stars
       }
 
@@ -36,6 +37,8 @@
 
       // Print the bottom line of stars
       printStarLine(maxLength);
+
+      
     </script>
   </body>
 </html>
