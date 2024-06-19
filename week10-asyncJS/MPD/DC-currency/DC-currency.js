@@ -30,12 +30,15 @@ const populateDropDown = (codes) => {
     option2.value = code;
     option2.text = `${name} (${code})`;
     toDropDown.appendChild(option2);
+
+    if (code==="ILS"){
+      option.selected=true
+      option2.selected="ILS"
+    }
   });
 };
 
-// const button = document.querySelector("#convert");
-// button.addEventListener("click", fetchCurrencies);
-
+// FUNCTION TO CONVERT THE CURRENCY
 const handleClick = async () => {
   const fromCurrency = document.querySelector("#from").value;
   const toCurrency = document.querySelector("#to").value;
