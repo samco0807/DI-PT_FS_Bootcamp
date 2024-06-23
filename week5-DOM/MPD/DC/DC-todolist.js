@@ -12,47 +12,67 @@ const addTask = () => {
     const newTask = document.querySelector("#newtask").value.trim();
     if (newTask) {
       const divNewClass = document.createElement("div");
-      const inputNewClass = document.createElement("input");
-      const inputNewClassDelete = document.createElement("input");
-      const labelNewClass = document.createElement("label");
-
       divNewClass.className = "checkbox";
 
-      // first checkbox to strike-through the text
-      inputNewClass.type = "checkbox";
-      inputNewClass.id = `strike-task-${tasks.length}`;
+divNewClass.innerHTML=`
+<div class="form-check d-inline-flex p-2">
+  <input class="form-check-input d-inline-flex p-2 delete-task" type="checkbox" value="" id="deletetask">
+  <label class="form-check-label" for="deletetask id="deletasklabel">
+  </label>
+</div>
+<div class="form-check d-inline-flex p-2">
+  <input class="form-check-input d-inline-flex p-2 strike-task" type="checkbox" value="" id="striketask">
+  <label class="form-check-label" for="striketasklabel">
+  ${newTask}
+  </label>
+</div>
+`
 
-      // second checkbox to delete the line the create div
-      inputNewClassDelete.type = "checkbox";
-      inputNewClassDelete.id = `delete-task-${tasks.length}`;
-      inputNewClassDelete.style = "background-color: blue";
+      // const inputNewClass = document.createElement("input");
+      // const inputNewClassDelete = document.createElement("input");
+      // const labelNewClass = document.createElement("label");
+
       
 
-      labelNewClass.setAttribute("for", inputNewClass.id);
-      labelNewClass.textContent = newTask;
+      // first checkbox to strike-through the text
+      // inputNewClass.type = "checkbox";
+      // inputNewClass.id = `strike-task-${tasks.length}`;
 
-      divNewClass.appendChild(inputNewClass);
-      divNewClass.appendChild(inputNewClassDelete);
-      divNewClass.appendChild(labelNewClass);
+      // second checkbox to delete the line the create div
+      // inputNewClassDelete.type = "checkbox";
+      // inputNewClassDelete.id = `delete-task-${tasks.length}`;
+      // inputNewClassDelete.className = "background-color: blue";
+
+      // labelNewClass.setAttribute("for", inputNewClass.id);
+      // labelNewClass.textContent = newTask;
+
+      // divNewClass.appendChild(inputNewClass);
+      // divNewClass.appendChild(inputNewClassDelete);
+      // divNewClass.appendChild(labelNewClass);
 
       checkboxContainer.appendChild(divNewClass);
 
       tasks.push(newTask);
       document.querySelector("#newtask").value = "";
 
+      const inputStrike=divNewClass.querySelector(".strike-task")
+      const inputDelete=divNewClass.querySelector(".delete-task")
+const labelStrike=divNewClass.querySelector(".strike-task + label")
+
       // Add event listener to toggle strikethrough
 
-      inputNewClass.addEventListener("change", (e) => {
+      inputStrike.addEventListener("change", (e) => {
         if (e.target.checked) {
-          labelNewClass.style.textDecoration = "line-through";
+          labelStrike.style.textDecoration = "line-through";
         } else {
-          labelNewClass.style.textDecoration = "none";
+          labelStrike.style.textDecoration = "none";
         }
       });
-      inputNewClassDelete.addEventListener("change", (e) => {
+      inputDelete.addEventListener("change", (e) => {
         if (e.target.checked) {
-        checkboxContainer.removeChild(divNewClass)
-    }});
+          checkboxContainer.removeChild(divNewClass);
+        }
+      });
     }
   });
 };

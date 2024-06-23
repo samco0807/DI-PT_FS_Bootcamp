@@ -13,29 +13,30 @@
     />
   </head>
   <body>
+    
     <!-- General container -->
     <div
-      class="container d-flex justify-content-center align-items-center vh-100"
+      class="m-0 container d-flex flex-column justify-content-center align-items-center vh-100 todo"
     >
-      <div class="w-50 p-4 border">
-        <h1 class="text-center">TO-DO LIST</h1>
+    <h1 class="text-center " style="color: aliceblue;">TO-DO LIST</h1>
+      <div class="w-1000 p-5">
 
-        <div class="item d-flex justify-content-center align-items-center">
+        <div class="mb-3 fs-5 item d-flex justify-content-center align-items-center addTask">
           <input
             type="text"
             name="newtask"
             id="newtask"
             placeholder="new task"
           />
-          <button id="addButton">ADD</button>
+          <button class="text-primary border border-0" id="addButton">ADD</button>
         </div>
 
-        <section class="container d-flex justify-content-center align-items-center">
+        <section class="p-0 container d-flex tasks">
           <form action="" id="taskForm">
             <div id="checkbox-container">
             </div>
             <div class="clear">
-              <button id="clearButton" type="submit">Clear</button>
+              <button class="btn btn-outline-danger border border-0" id="clearButton" type="submit">Clear</button>
           </div>
           </form>
         </section>
