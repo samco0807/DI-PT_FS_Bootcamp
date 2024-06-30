@@ -56,7 +56,7 @@ divNewClass.innerHTML=`
       document.querySelector("#newtask").value = "";
 
       const inputStrike=divNewClass.querySelector(".strike-task")
-      const inputDelete=divNewClass.querySelector(".delete-task")
+      const buttonDelete=divNewClass.querySelector(".delete-task")
 const labelStrike=divNewClass.querySelector(".strike-task + label")
 
       // Add event listener to toggle strikethrough
@@ -68,7 +68,7 @@ const labelStrike=divNewClass.querySelector(".strike-task + label")
           labelStrike.style.textDecoration = "none";
         }
       });
-      inputDelete.addEventListener("change", (e) => {
+      buttonDelete.addEventListener("change", (e) => {
         if (e.target.checked) {
           checkboxContainer.removeChild(divNewClass);
         }
