@@ -10,10 +10,7 @@ const getRandomCharacter = async () => {
     const res=data.result.properties
     if (response.ok) {
       return res;
-    } else {
-      throw new Error("The character does not exist");
-      document.querySelector(".container").innerHTML=`The The character does not exist`
-    }
+    } 
   } catch (error) {
     console.log("Page not found", error);
   }
