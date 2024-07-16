@@ -1,5 +1,5 @@
 import axios from "axios";
-import { emojis } from "emojis";
+import emojis from "emojis";
 
 // Select form and add an even to the form
 document.querySelector("#emojiGameForm").addEventListener("submit", async (e) => {
