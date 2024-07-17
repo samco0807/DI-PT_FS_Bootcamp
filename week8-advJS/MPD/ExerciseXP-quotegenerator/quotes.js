@@ -1,9 +1,9 @@
 let quotes = [
-  { author: "shalom", quote: "tata" },
-  { author: "ma nishma", quote: "mama mia" },
-  { author: "sababa", quote: "jeff blabla" },
-  { author: "yom tov", quote: "joseph blabla" },
-  { author: "toda raba", quote: "yallah" },
+  { quote: "tata", author: "shalom" },
+  { quote: "mama mia", author: "ma nishma" },
+  { quote: "jeff blabla", author: "sababa" },
+  { quote: "joseph blabla", author: "yom tov" },
+  { quote: "yallah", author: "toda raba" },
 ];
 
-export default quotes
+export default quotes;

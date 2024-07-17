@@ -11,9 +11,9 @@ const getRandomQuote = () => {
 //   function to display the quotes infos in the DOM
 const handleClick = async () => {
   // select the container div
-  const container = document.querySelector(".quote");
+  const container = document.querySelectorAll(".quote");
   // check if the displayQuotesInfos div exists
-  let displayQuotesInfos = document.querySelector(".displayQuoteInfos");
+  let displayQuotesInfos = document.querySelectorAll(".displayQuotesInfos");
   // if doesn't exist create a new div
   if (!displayQuotesInfos) {
     // create a new div inside the container
@@ -28,15 +28,15 @@ const handleClick = async () => {
   //   insert infos in JSX
   displayQuotesInfos.innerHTML = `
     <h4>Quote: ${randomQuote.quote}</h4>
-    <h4>Author: ${randomQuote.quote}</h4>
-    <button>Next</button>
+    <h4>Author: ${randomQuote.author}</h4>
+    <button type="button">Next</button>
     `;
 };
 
 // Function to add new quote
 const addQuote = () => {
-  const newQuote = document.querySelector("newQuote").value;
-  const newAuthor = document.querySelector("newAuthor").value;
+  const newQuote = document.querySelectorAll("newQuote").value;
+  const newAuthor = document.querySelectorAll("newAuthor").value;
   //   if the 2 inputs are filled
   if (newQuote && newAuthor) {
     // add the inputs in the array
@@ -44,15 +44,38 @@ const addQuote = () => {
     alert("Quote added successfully!");
   }
   alert("Please enter both quote and author");
+  const generateQuoteButton = document.querySelector("#generateQuote");
+  generateQuoteButton.addEventListener("click", handleClick);
+
+  const addNewQuoteButton = document.querySelector("#addNewQuoteButton");
+  addNewQuoteButton.addEventListener("click", addQuote);
+
+  const filterButton = document.querySelector("#filterButton");
+  filterButton.addEventListener("click", () => {
+    const newAuthor = document.querySelector("newAuthor").value;
+    // Create filter if the quote inside the array = the input value entered by the user
+    const filterQuotes = quotes.filter((quote) => quote.author === newAuthor);
+  });
+
+  const container = document.querySelector(".quote");
+  // check if the displayQuotesInfos div exists
+  let displayQuotesInfos = document.querySelector(".displayQuotesInfos");
+  // if doesn't exist create a new div
+  if (!displayQuotesInfos) {
+    // create a new div inside the container
+    displayQuotesInfos = document.createElement("div");
+    // class the new created div with classname
+    displayQuotesInfos.className = "quotesInfos";
+    // Insert the new created div in the container div
+    container.appendChild(displayQuotesInfos);
+  }
+  //   insert infos in JSX
+  displayQuotesInfos.innerHTML = "";
+  filterQuotes.forEach((quote) => {
+    displayQuotesInfos.innerHTML = `
+    <h4>Quote: ${quote.quote}</h4>
+    <h4>Author: ${quote.author}</h4>
+    <button type="button">Next</button>
+    `;
+  });
 };
-
-const generateQuoteButton = document.querySelector("#generateQuote");
-generateQuoteButton.addEventListener("click", handleClick);
-
-const addNewQuoteButton = document.querySelector("#addButton");
-addNewQuoteButton.addEventListener("click", addQuote);
-
-const filterButton=document.querySelector("#filterButton")
-filterButton.addEventListener("click", (e)=>{
-    quotes.filter((quote)=>quote.author)
-});
