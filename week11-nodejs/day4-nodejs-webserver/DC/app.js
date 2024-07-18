@@ -27,7 +27,7 @@ document
         userSelectedEmojiName,
       });
       const result = response.data;
-      // While the name selected by the user matches the emojis, continue
+      // While the emoji name selected by the user matches the emojis icon, continue
       do {
         document.querySelector("#score").innerHTML = `
       <h2>Great Job</h2>, 

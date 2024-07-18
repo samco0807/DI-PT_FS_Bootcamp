@@ -29,7 +29,7 @@ app.get("/emoji", async (req, res) => {
       // if the selected name user emoji is egal to the random emoji
       if (selectedEmojiName == randomEmoji.name) {
         result = "Great Job";
-        score = +1;
+        score++;
       } else {
         result = "No you guessed wrong";
       }
