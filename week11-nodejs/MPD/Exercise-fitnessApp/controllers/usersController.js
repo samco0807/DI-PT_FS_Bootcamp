@@ -1,10 +1,7 @@
-const express = require("express");
-const router = express.Router();
-const knex = require("../db");
-
+import knex from "../db.sql"
 
 // Get all the users
-const getAllUsers= async (req, res) => {
+const getAllUsers = async (req, res) => {
   try {
     const users = await knex.select("*").from("users");
     res.json(users);
@@ -15,7 +12,7 @@ const getAllUsers= async (req, res) => {
 };
 
 // Get an user by ID
-const getUsersbyId=async (req, res) => {
+const getUsersbyId = async (req, res) => {
   try {
     const user = await knex("users").where({ id: req.params.id }).first();
     if (!user) {
@@ -29,7 +26,7 @@ const getUsersbyId=async (req, res) => {
 };
 
 // Create a new user
-const  createUser=async (req, res) => {
+const createUser = async (req, res) => {
   try {
     const newUser = {
       name: req.body.name,
@@ -47,7 +44,7 @@ const  createUser=async (req, res) => {
 };
 
 // Update an user
-const updateUser= async (req, res) => {
+const updateUser = async (req, res) => {
   try {
     const id = Number(req.params.userID);
     const index = users.findIndex((user) => user.id === id);
@@ -62,7 +59,7 @@ const updateUser= async (req, res) => {
       createdAt: req.body.createdAt,
       updatedAt: req.body.updatedAt,
     };
-    await knex("users").update(updatedUser).returning("id") ;
+    await knex("users").update(updatedUser).returning("id");
     res.status(200).json("User updated");
   } catch (error) {
     console.error(error);
@@ -71,14 +68,14 @@ const updateUser= async (req, res) => {
 };
 
 // Delete an user
-const deleteUser= async (req, res) => {
+const deleteUser = async (req, res) => {
   try {
     const id = Number(req.params.userID);
     const index = users.findIndex((user) => user.id === id);
     if (index === -1) {
       return res.status(404).send("User not found");
     }
-    await knex("users").del(id).returning("users") ;
+    await knex("users").del(id).returning("users");
     users.splice(index, 1);
     res.status(200).json("User deleted");
   } catch (error) {
@@ -87,14 +84,13 @@ const deleteUser= async (req, res) => {
   }
 };
 
-
 module.exports = {
-    getAllUsers,
-    getUsersbyId,
-    createUser,
-    updateUser,
-    deleteUser
+  getAllUsers,
+  getUsersbyId,
+  createUser,
+  updateUser,
+  deleteUser,
 };
 
-const port = 3000
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+const port = 3000;
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));

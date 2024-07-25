@@ -4,7 +4,6 @@ console.log("Hello");
 // Select the elements in the HTML
 const cards = document.querySelector(".cards");
 
-
 // function to display the robots in the cards
 const displayRobots = () => {
   robots.forEach((robot) => {
@@ -25,14 +24,10 @@ const displayRobots = () => {
 
 // function to filter a specific robot according to the name
 const searchRobot = () => {
-    const searchTerm = searchBar.value.toLowerCase();
-    const filterRobots = robots.filter((robot) =>
-      robot.name.toLowerCase().includes(searchTerm())
-    );
-  };
-;
-
-const searchBar = document.querySelectorAll("#searchbar");
-searchBar.addEventListener("keyup", (e)=> searchRobot)
-
+  const searchTerm = searchBar.value.toLowerCase();
+  const filterRobots = robots.filter((robot) =>
+    robot.name.toLowerCase().includes(searchTerm())
+  );
+};
+document.querySelectorAll("#searchbar").addEventListener("keyup", searchRobot);
 displayRobots();

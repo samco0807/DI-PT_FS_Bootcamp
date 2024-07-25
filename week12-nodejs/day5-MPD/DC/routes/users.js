@@ -2,11 +2,11 @@ import userController from "../controllers/usersController"
 
 const router = express.Router();
 
-router.get("/users",userController.getAllUsers)
-router.get("/users/:id",userController.getUsersbyId)
-router.post("/users",userController.createUser)
+router.get("/users",userController.getAllRegisteredUsers)
+router.get("/users/:id",userController.getRegisteredUserbyId)
+router.post("/register",userController.registerUser)
+router.post("/login",userController.loginUser)
 router.put("/users/:id",userController.updateUser)
-router.delete("/users/:id",userController.deleteUser)
 
 export default router
 

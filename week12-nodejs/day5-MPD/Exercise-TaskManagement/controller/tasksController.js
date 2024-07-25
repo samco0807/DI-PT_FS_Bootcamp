@@ -1,0 +1,100 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url" 
+import taskData from "../data/tasks.json" assert {type:"json"};
+
+const __filename=fileURLToPath(import.meta.url)
+const __dirname=path.dirname(__filename)
+// Define the path of the data file
+const dataFilePath = path.join(__dirname, "../data/tasks.json");
+
+// Function to read the JSON file
+const readTasks = () => {
+  return taskData;
+};
+
+// Function to write the JSON file
+const writeTasks = () => {
+  return JSON.parse(dataFilePath, JSON.stringify(tasks, null, 2));
+};
+
+// Get all the tasks
+export const getAllTasks = async (req, res) => {
+  try {
+    const tasks = readTasks();
+    res.json(tasks);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+// Get an task by ID
+export const getTaskbyId = async (req, res) => {
+  try {
+    const taskId = readTasks().task.json({ id });
+    if (!taskId) {
+      return res.status(404).json({ error: "Task not found" });
+    }
+    res.json(task);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+// Create a new task
+export const createTask = async (req, res) => {
+  try {
+    const newTask = {
+      name: req.body.name,
+      owner: req.body.owner,
+      assignedTo: req.body.assignedTo,
+      description: req.body.description,
+      createdAt: req.body.createdAt,
+      createdBy: req.body.createdBy,
+      updatedAt: req.body.updatedAt,
+    };
+    const tasks = readTasks();
+    tasks.push(newTask);
+    writeTasks(tasks);
+    res.status(201).json(newTask);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+// Update an task
+export const updateTask = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const updatedTask = {
+      username: req.body.username,
+      createdAt: req.body.createdAt,
+      updatedAt: req.body.updatedAt,
+    };
+    let tasks = readTasks();
+    // Using the ternary operator to check if the task already exists with id
+    tasks = tasks.map((task) => (task.id === id ? updatedTask : task));
+    writeTasks(tasks);
+    res.status(200).json("Task updated");
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+// Delete a task
+export const deleteTask = async (req, res) => {
+  try {
+    const id = req.params.id;
+    let tasks = readTasks();
+    tasks = tasks.filter((todo) => todo.id !== id);
+    writeTasks(tasks);
+    res.status(200).json("Task deleted");
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};

@@ -1,4 +1,4 @@
-const knex = require("../db");
+import knex from "../db.sql"
 
 // Get all the workouts
 const getAllWorkouts = async (req, res) => {

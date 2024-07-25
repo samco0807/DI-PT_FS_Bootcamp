@@ -1,7 +1,7 @@
 import axios from "axios";
 import { emojis } from "emojis.js";
 
-// Create function to retrieve random emoji
+// function to retrieve random emoji
 const getRandomEmoji = async () => {
   try {
     const response = await axios.get("/emoji");
@@ -30,7 +30,7 @@ document
       // While the emoji name selected by the user matches the emojis icon, continue
       do {
         document.querySelector("#score").innerHTML = `
-      <h2>Great Job</h2>, 
+      <h2>Great Job</h2>,
       <h2>result: ${score}</h2>, 
       `;
         score++;

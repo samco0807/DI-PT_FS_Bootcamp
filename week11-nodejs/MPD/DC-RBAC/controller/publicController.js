@@ -1,4 +1,4 @@
-const questions = require("../quiz");
+const public = require("../public");
 
 // Start the Quiz
 const startQuiz = (req, res) => {

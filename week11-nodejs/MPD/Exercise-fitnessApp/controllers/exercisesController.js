@@ -1,6 +1,4 @@
-const express = require("express");
-const router = express.Router();
-const knex = require("../db");
+import knex from "../db.sql";
 
 // Get all the exercises
 const getAllExercises = async (req, res) => {
@@ -14,9 +12,11 @@ const getAllExercises = async (req, res) => {
 };
 
 // Get an exercise by ID
-const getExercisebyId = async (req, res) => {
+const getExerciseById = async (req, res) => {
   try {
-    const exercise = await knex("exercises").where({ id: req.params.id }).first();
+    const exercise = await knex("exercises")
+      .where({ id: req.params.id })
+      .first();
     if (!exercise) {
       return res.status(404).json({ error: "Exercise not found" });
     }
@@ -61,7 +61,7 @@ const updateExercise = async (req, res) => {
       createdAt: req.body.createdAt,
       updatedAt: req.body.updatedAt,
     };
-    await knex("exercises").update(updatedExercise).returning("id") ;
+    await knex("exercises").update(updatedExercise).returning("id");
     res.status(200).json("Exercise updated");
   } catch (error) {
     console.error(error);
@@ -77,7 +77,7 @@ const deleteExercise = async (req, res) => {
     if (index === -1) {
       return res.status(404).send("Exercise not found");
     }
-    await knex("exercises").del(id).returning("exercises") ;
+    await knex("exercises").del(id).returning("exercises");
     exercises.splice(index, 1);
     res.status(200).json("Exercise deleted");
   } catch (error) {
@@ -86,13 +86,13 @@ const deleteExercise = async (req, res) => {
   }
 };
 
-module.exports = {
-    getAllExercises,
-    getExercisebyId,
-    createExercise,
-    updateExercise,
-    deleteExercise
+export default module = {
+  getAllExercises,
+  getExerciseById,
+  createExercise,
+  updateExercise,
+  deleteExercise,
 };
 
-const port = 3000
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+const port = 3000;
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));

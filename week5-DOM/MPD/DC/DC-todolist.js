@@ -27,29 +27,6 @@ divNewClass.innerHTML=`
   </label>
 </div>
 `
-
-      // const inputNewClass = document.createElement("input");
-      // const inputNewClassDelete = document.createElement("input");
-      // const labelNewClass = document.createElement("label");
-
-      
-
-      // first checkbox to strike-through the text
-      // inputNewClass.type = "checkbox";
-      // inputNewClass.id = `strike-task-${tasks.length}`;
-
-      // second checkbox to delete the line the create div
-      // inputNewClassDelete.type = "checkbox";
-      // inputNewClassDelete.id = `delete-task-${tasks.length}`;
-      // inputNewClassDelete.className = "background-color: blue";
-
-      // labelNewClass.setAttribute("for", inputNewClass.id);
-      // labelNewClass.textContent = newTask;
-
-      // divNewClass.appendChild(inputNewClass);
-      // divNewClass.appendChild(inputNewClassDelete);
-      // divNewClass.appendChild(labelNewClass);
-
       checkboxContainer.appendChild(divNewClass);
 
       tasks.push(newTask);
@@ -59,7 +36,7 @@ divNewClass.innerHTML=`
       const buttonDelete=divNewClass.querySelector(".delete-task")
 const labelStrike=divNewClass.querySelector(".strike-task + label")
 
-      // Add event listener to toggle strikethrough
+      // Add event listeners to toggle strikethrough
 
       inputStrike.addEventListener("change", (e) => {
         if (e.target.checked) {
