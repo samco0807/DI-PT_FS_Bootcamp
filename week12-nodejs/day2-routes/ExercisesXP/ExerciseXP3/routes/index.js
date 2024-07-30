@@ -1,8 +1,6 @@
 const express = require('express');
-const { Router } = require("express");
+const app=express
 const router=Router()
-
-const app=express()
 
 const { 
     getBooks,
@@ -10,13 +8,12 @@ const {
     createBook,
     updateBook,
     deleteBook 
-} = require('./routes/index')
+} = require("./books.js")
 
-router.get('/', getBooks)
-router.get('/:bookId', getBook)
-router.post('/', createBook) 
-router.put('/:bookId', updateBook) 
-router.delete('/:bookId', deleteBook)
+router.get('/books', getBooks)
+router.post('/books', createBook) 
+router.put('/books/:id', updateBook) 
+router.delete('/books/:id', deleteBook)
 
 module.exports=router
 

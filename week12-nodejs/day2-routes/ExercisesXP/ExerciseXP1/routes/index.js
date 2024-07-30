@@ -1,7 +1,6 @@
-const express = require("express");
-const {index} = require("./routes/index");
+import express from "express"
+const router=express.Router()
 
-const router = express.Router();
 const homePage = (req, res) => {
   res.send("This is a home page");
 };
@@ -13,4 +12,4 @@ const aboutPage = (req, res) => {
 router.get("/", homePage)
 router.get("/about", aboutPage)
 
-module.exports = router;
+export default router

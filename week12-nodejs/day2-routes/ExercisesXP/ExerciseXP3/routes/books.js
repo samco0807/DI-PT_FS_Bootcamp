@@ -1,5 +1,3 @@
-const books = require('../data.js')
-
 const getBooks = (req, res) => {
     res.json(books)
 }
@@ -7,7 +5,6 @@ const getBooks = (req, res) => {
 const getBook = (req, res) => {
     const id = Number(req.params.bookId)
     const book = books.find(book => book.id === id)
-
     if (!book) {
         return res.status(404).send('Book not found')
     }

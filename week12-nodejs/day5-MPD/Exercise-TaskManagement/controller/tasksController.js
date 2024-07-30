@@ -1,10 +1,9 @@
-import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url" 
-import taskData from "../data/tasks.json" assert {type:"json"};
+import { fileURLToPath } from "url";
+import taskData from "../data/tasks.json" assert { type: "json" };
 
-const __filename=fileURLToPath(import.meta.url)
-const __dirname=path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // Define the path of the data file
 const dataFilePath = path.join(__dirname, "../data/tasks.json");
 
@@ -19,7 +18,7 @@ const writeTasks = () => {
 };
 
 // Get all the tasks
-export const getAllTasks = async (req, res) => {
+const getAllTasks = async (req, res) => {
   try {
     const tasks = readTasks();
     res.json(tasks);
@@ -30,7 +29,7 @@ export const getAllTasks = async (req, res) => {
 };
 
 // Get an task by ID
-export const getTaskbyId = async (req, res) => {
+const getTaskbyId = async (req, res) => {
   try {
     const taskId = readTasks().task.json({ id });
     if (!taskId) {
@@ -44,7 +43,7 @@ export const getTaskbyId = async (req, res) => {
 };
 
 // Create a new task
-export const createTask = async (req, res) => {
+const createTask = async (req, res) => {
   try {
     const newTask = {
       name: req.body.name,
@@ -66,7 +65,7 @@ export const createTask = async (req, res) => {
 };
 
 // Update an task
-export const updateTask = async (req, res) => {
+const updateTask = async (req, res) => {
   try {
     const id = req.params.id;
     const updatedTask = {
@@ -86,7 +85,7 @@ export const updateTask = async (req, res) => {
 };
 
 // Delete a task
-export const deleteTask = async (req, res) => {
+const deleteTask = async (req, res) => {
   try {
     const id = req.params.id;
     let tasks = readTasks();
@@ -98,3 +97,11 @@ export const deleteTask = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
+
+module.exports={
+  getAllTasks,
+  getTaskbyId,
+  createTask,
+  updateTask,
+  deleteTask,
+}
