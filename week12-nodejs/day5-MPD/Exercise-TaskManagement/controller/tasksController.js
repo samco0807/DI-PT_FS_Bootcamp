@@ -1,7 +1,7 @@
-const { fileURLToPath } = require('url')
+const { fileURLToPath } = require("url");
 const fs = require("fs");
-const path = require('path')
-const tasks = require('../data/tasks.json'); // Import using CommonJS
+const path = require("path");
+const tasks = require("../data/tasks.json"); // Import using CommonJS
 
 // Define the path of the data file
 const dataFilePath = path.join(__dirname, "../data/tasks.json");
@@ -15,9 +15,9 @@ const dataFilePath = path.join(__dirname, "../data/tasks.json");
 const writeTasks = (tasks) => {
   try {
     return fs.writeFileSync(dataFilePath, JSON.stringify(tasks, null, 2));
-    console.log('Data written to file successfully');
+    console.log("Data written to file successfully");
   } catch (error) {
-    console.error('Error writing to file:', err);
+    console.error("Error writing to file:", err);
   }
 };
 
@@ -35,11 +35,12 @@ const getAllTasks = async (req, res) => {
 // Get an task by ID
 const getTaskbyId = async (req, res) => {
   try {
-    const taskId = readTasks({ id });
-    if (!taskId) {
+    const taskId = req.params.id;
+    const task = tasks.find((item) => item.id == taskId);
+    if (!task) {
       return res.status(404).json({ error: "Task not found" });
     }
-    res.json(tasks);
+    res.json(task);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
@@ -65,7 +66,7 @@ const updateTask = async (req, res) => {
   try {
     const id = req.params.id;
     const updatedTask = {
-      username: req.body.username,
+      task: req.body.task,
       createdAt: req.body.createdAt,
       updatedAt: req.body.updatedAt,
     };
@@ -84,9 +85,9 @@ const updateTask = async (req, res) => {
 const deleteTask = async (req, res) => {
   try {
     const id = req.params.id;
-    let tasks = readTasks();
-    tasks = tasks.filter((todo) => todo.id !== id);
-    writeTasks(tasks);
+    // let tasks = readTasks();
+    const newTasks = tasks.filter((item) => item.id != id);
+    writeTasks(newTasks);
     res.status(200).json("Task deleted");
   } catch (error) {
     console.error(error);
