@@ -2,6 +2,7 @@ const { fileURLToPath } = require("url");
 const fs = require("fs");
 const path = require("path");
 const tasks = require("../data/tasks.json"); // Import using CommonJS
+const { error } = require("console");
 
 // Define the path of the data file
 const dataFilePath = path.join(__dirname, "../data/tasks.json");
@@ -36,8 +37,8 @@ const getAllTasks = async (req, res) => {
 const getTaskbyId = async (req, res) => {
   try {
     const taskId = req.params.id;
-    const task = tasks.find((item) => item.id == taskId);
-    if (!task) {
+    const taskIndex = tasks.find((item) => item.id == taskId);
+    if (!taskIndex) {
       return res.status(404).json({ error: "Task not found" });
     }
     res.json(task);
@@ -65,14 +66,13 @@ const createTask = async (req, res) => {
 const updateTask = async (req, res) => {
   try {
     const id = req.params.id;
-    const updatedTask = {
-      task: req.body.task,
-      createdAt: req.body.createdAt,
-      updatedAt: req.body.updatedAt,
-    };
-    let tasks = readTasks();
-    // Using the ternary operator to check if the task already exists with id
-    tasks = tasks.map((task) => (task.id === id ? updatedTask : task));
+    const updatedTask = req.body;
+    const taskIndex = tasks.findIndex((item) => item.id == id);
+    if (taskIndex === 1) {
+      res.status(404).json(error, "Task not found");
+    }
+    // Update the task at the found index
+    tasks[taskIndex] = updatedTask;
     writeTasks(tasks);
     res.status(200).json("Task updated");
   } catch (error) {
