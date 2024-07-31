@@ -1,26 +1,30 @@
-import path from "path";
-import { fileURLToPath } from "url";
-import taskData from "../data/tasks.json" assert { type: "json" };
+const { fileURLToPath } = require('url')
+const fs = require("fs");
+const path = require('path')
+const tasks = require('../data/tasks.json'); // Import using CommonJS
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 // Define the path of the data file
 const dataFilePath = path.join(__dirname, "../data/tasks.json");
 
 // Function to read the JSON file
-const readTasks = () => {
-  return taskData;
-};
+// const readTasks = () => {
+//   return taskData;
+// };
 
 // Function to write the JSON file
-const writeTasks = () => {
-  return JSON.parse(dataFilePath, JSON.stringify(tasks, null, 2));
+const writeTasks = (tasks) => {
+  try {
+    return fs.writeFileSync(dataFilePath, JSON.stringify(tasks, null, 2));
+    console.log('Data written to file successfully');
+  } catch (error) {
+    console.error('Error writing to file:', err);
+  }
 };
 
 // Get all the tasks
 const getAllTasks = async (req, res) => {
   try {
-    const tasks = readTasks();
+    // const tasks = JSON.parse(fs.readFileSync(dataFilePath, "utf-8"));
     res.json(tasks);
   } catch (error) {
     console.error(error);
@@ -31,11 +35,11 @@ const getAllTasks = async (req, res) => {
 // Get an task by ID
 const getTaskbyId = async (req, res) => {
   try {
-    const taskId = readTasks().task.json({ id });
+    const taskId = readTasks({ id });
     if (!taskId) {
       return res.status(404).json({ error: "Task not found" });
     }
-    res.json(task);
+    res.json(tasks);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
@@ -45,16 +49,8 @@ const getTaskbyId = async (req, res) => {
 // Create a new task
 const createTask = async (req, res) => {
   try {
-    const newTask = {
-      name: req.body.name,
-      owner: req.body.owner,
-      assignedTo: req.body.assignedTo,
-      description: req.body.description,
-      createdAt: req.body.createdAt,
-      createdBy: req.body.createdBy,
-      updatedAt: req.body.updatedAt,
-    };
-    const tasks = readTasks();
+    const newTask = req.body;
+    const tasks = JSON.parse(fs.readFileSync(dataFilePath, "utf-8"));
     tasks.push(newTask);
     writeTasks(tasks);
     res.status(201).json(newTask);
@@ -98,10 +94,10 @@ const deleteTask = async (req, res) => {
   }
 };
 
-module.exports={
+module.exports = {
   getAllTasks,
   getTaskbyId,
   createTask,
   updateTask,
   deleteTask,
-}
+};

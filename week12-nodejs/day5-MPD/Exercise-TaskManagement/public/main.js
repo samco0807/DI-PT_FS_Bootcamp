@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoad", () => {
   // Create a function display the task on the DOM
   const fetchTasks = async () => {
     // Select elements in the HTML form
-
     try {
       const response = await axios.get("http://localhost:3000/tasks");
       const tasks = response.data;
