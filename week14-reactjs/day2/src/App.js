@@ -12,19 +12,19 @@ const App = () => {
       <div className="App">
         <nav>
           <ul>
-            <li>
+            <li id="ex">
               <Link to="/exercise1">Exercise 1</Link>
             </li>
-            <li>
+            <li id="ex">
               <Link to="/exercise2">Exercise 2</Link>
             </li>
-            <li>
+            <li id="ex">
               <Link to="/exercise3">Exercise 3</Link>
             </li>
-            <li>
+            <li id="ex">
               <Link to="/exercise4">Exercise 4</Link>
             </li>
-            <li>
+            <li id="ex">
               <Link to="/DC">DC</Link>
             </li>
             <header className="App-header"></header>
@@ -36,7 +36,7 @@ const App = () => {
           <Route path="/exercise2" element={<Exercise2 />} />
           <Route path="/exercise3" element={<Exercise3 />} />
           <Route path="/exercise4" element={<Exercise4 />} />
-          <Route path="/DC" element={<DailyChallenge />} />
+          <Route path="/dc" element={<DailyChallenge />} />
         </Routes>
       </div>
     </Router>

@@ -14,8 +14,9 @@ class Events extends Component {
   };
 
   HandleKeyDown = (e) => {
-    (<label>Press enter the key</label>)(e.key === "Enter");
-    alert("The Enter key was pressed, your imput is: React");
+    if (e.key === "Enter");
+    const inputValue=e.target.value.trim()
+    alert(`The Enter key was pressed, your input is: ${inputValue}`);
   };
 
   toggleState = () => {

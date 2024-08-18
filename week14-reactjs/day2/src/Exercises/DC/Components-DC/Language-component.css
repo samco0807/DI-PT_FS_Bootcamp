@@ -1,0 +1,11 @@
+.votes {
+  list-style-type: none;
+  padding: 2%;
+  font-size: 2rem;
+  width: 50%;
+  margin: auto;
+}
+
+button{
+  font-size: 2rem;
+}

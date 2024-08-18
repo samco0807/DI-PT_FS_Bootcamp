@@ -1,14 +1,10 @@
 import React from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Home from "./ExerciseXP1-Component/Home";
-import Shop from "./ExerciseXP1-Component/Shop";
-import Profile from "./ExerciseXP1-Component/Profile";
-import ErrorBoundary from "./ExerciseXP1-Component/Exercise1-Component";
+import Home from "./ExerciseXP1-Component/Home.js";
+import Shop from "./ExerciseXP1-Component/Shop.js";
+import Profile from "./ExerciseXP1-Component/Profile.js";
+import ErrorBoundary from "./ExerciseXP1-Component/Exercise1-Component.js";
 
 const App = () => {
   return (
@@ -29,7 +25,7 @@ const App = () => {
             </ul>
           </nav>
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route exact path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/shop" element={<Shop />} />
           </Routes>

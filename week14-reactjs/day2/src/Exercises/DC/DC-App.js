@@ -1,5 +1,6 @@
 import React from "react";
-import Votes from "./Components-DC/Language.component";
+import Votes from "./Components-DC/Language-component.js";
+// import "./Components-DC/Language-component.css"
 
 const App = () => {
   return (
