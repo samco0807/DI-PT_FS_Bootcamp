@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./MPD-DCComponent.css";
 
 const Calculator = () => {
@@ -25,27 +25,24 @@ const Calculator = () => {
       <div className="container">
         <div className="calculate">
           <form onSubmit={calculateResult}>
-            <h1>Adding Two Number</h1>
+            <h2>Adding Two Number</h2>
             <input
               className="num1"
               name="number"
               type="number"
               value={numberEntered1}
               onChange={handleNumber1Change}
-            >
-              {numberEntered1}{" "}
-            </input>
+            ></input>
             <input
               className="num2"
               name="number"
               type="number"
               value={numberEntered2}
               onChange={handleNumber2Change}
-            >
-              {numberEntered2}{" "}
-            </input>
-
-            <button type="submit">Add Them</button>
+            ></input>
+            <div>
+              <button type="submit">Add Them!</button>
+            </div>
           </form>
           <div>
             <h1 className="result">{result} </h1>

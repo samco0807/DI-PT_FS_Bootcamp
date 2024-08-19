@@ -1,29 +1,26 @@
-import React from 'react';
-import FormComponent from './DC-Component/DC-component';
+import React from "react";
+import FormComponent from "./DC-Component/DC-component.js";
 
 class App extends React.Component {
   constructor() {
-    super()
-    this.state={}
-    ;
+    super();
+    this.state = {};
   }
 
-  handleChange = event => {
-    event.preventDefault();
-    let inputs = event.target.getElementsByTagName('input')
-
-    for (const item of inputs) {
-      console.log(item.value)
-
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let inputs = e.target.getElementsByTagName("input");
+    for (const input of inputs) {
+      console.log(input.value);
     }
-  }
+  };
 
   render() {
     return (
-      <div className="box" >
-        <FormComponent handleChange={this.handleChange} />
+      <div className="box">
+        <FormComponent handleSubmit={this.handleSubmit} />
       </div>
-    )
+    );
   }
 }
 

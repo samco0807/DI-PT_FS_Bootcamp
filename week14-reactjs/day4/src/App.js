@@ -9,7 +9,7 @@ const App = () => {
     <Router>
       <div className="App">
         <nav>
-          <ul>
+          <ul className="ex">
             <li>
               <Link to="/exercise1">Exercise 1</Link>
             </li>

@@ -1,60 +1,21 @@
-import React, { Component } from "react"
+import React from "react";
+import Color from "./Exercise2-3-ColorComponent.js";
+import Child from "./Exercise2-3-ChildComponent.js";
 
-class Child extends Component{
-  render(){
-return <header>Hello World</header>
-      }
-    }
-
-class Color extends Component{
-    constructor(propos){
-  super(propos)
-  this.state={
-    color:"red",
-    show:true
-  }
-    }
-  
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.color!==this.state.color){
-    return true;
-}
-return false
-}
-
-componentDidUpdate(prevPropos, prevState) {
-    console.log("After update");
-
-}
-
-getSnapshotBeforeUpdate(prevPropos, prevState){
-    console.log("in getSnapshotBeforeUpdate");
-}
-
-componentWillUnmount(){
-console.log("Component will unmount");
-}
-  
-  FavoriteColor=()=>{
-    this.setState({color:"blue"})
-  }
-
-  ShowProperty=()=>{
-    this.setState({show: false})
-  }
+const App = () => {
+  return (
+    <div>
+      <Color />
+        <Child />
+    </div>
+  );
 };
 
-  render(){
-      <div>
-    const{color, show}=this.state
-  <header>My FavoriteColor is {color} 
-  {show && <Child/>}
-  <button onClick={this.FavoriteColor}>Change Color</button>
-  <button onClick={this.ShowProperty}>Delete Header</button>
-  </header>
-  </div>
-  
-  };
+export default App;
 
-  export default Color;
+      // const{(Color)}=this.state
+      // <header>
+      //   <h1>My {FavoriteColor} is {Color} </h1>
+      //   <button onClick={this.FavoriteColor}>Change Color</button>
+      //   <button onClick={this.ShowProperty}>Delete Header</button>
+      // </header>
