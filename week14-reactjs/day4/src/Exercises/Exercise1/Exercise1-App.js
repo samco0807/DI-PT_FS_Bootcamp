@@ -1,7 +1,6 @@
 import React from "react";
 import ErrorBoundary from "./Ex1-Components/ErrorBoundary";
 import BuggyCounter from "./Ex1-Components/BuggyCounter";
-import "./Exercise1-App.css"
 
 const App = () => {
   return (
@@ -9,9 +8,9 @@ const App = () => {
       <ErrorBoundary>
         <BuggyCounter />
       </ErrorBoundary>
-      <ErrorBoundary>
+      {/* <ErrorBoundary> */}
         <BuggyCounter />
-      </ErrorBoundary>
+      {/* </ErrorBoundary> */}
     </div>
   );
 };

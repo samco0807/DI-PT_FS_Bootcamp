@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ErrorBoundary from "./ErrorBoundary";
 
 class BuggyCounter extends Component {
   constructor(props) {
