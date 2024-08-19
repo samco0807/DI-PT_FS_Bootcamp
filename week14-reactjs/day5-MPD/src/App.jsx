@@ -10,6 +10,7 @@ const App = () => {
       <header className="App-header">
         <div className="App">
           <nav>
+            <h1>Mini Project Day</h1>
             <ul className="ex">
               <li>
                 <Link to="/exercise">Exercise</Link>
