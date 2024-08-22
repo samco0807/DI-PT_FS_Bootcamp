@@ -22,12 +22,11 @@ const ExerciseComponent = () => {
     }
   };
 
-  const clearOneTask = (e) => { 
-    e.preventDefault()
-  
-    setTask([])
-   }
-  
+  const clearOneTask = (index) => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
+  };
+
   const clearTasks = () => {
     setTasks([]);
     console.log(tasks);
@@ -35,28 +34,39 @@ const ExerciseComponent = () => {
 
   return (
     <div className="container">
+      <section>
       <h1>Todo's</h1>
       <Form onSubmit={handleSubmit}>
-        <Form.Label htmlFor="inputPassword5">Add a new todo:</Form.Label>
         <Form.Control
           type="text"
           id="inputtask"
           value={task}
           onChange={handleInputChange}
+          placeholder="Add a new todo"
           aria-describedby="passwordHelpBlock"
         />
         <Button variant="primary" type="submit" className="btn">
           Add task
         </Button>
-        <Button className="btn" variant="danger" type="button" onClick={clearTasks}>Delete Tasks</Button>{" "}
+        <Button
+          className="btn"
+          variant="danger"
+          type="button"
+          onClick={clearTasks}
+        >
+          Delete All Tasks
+        </Button>{" "}
         <div className="dislayedtasks">
           <h5>
             {tasks.map((task, index) => (
-              <li key={index} onClick={clearOneTask}>{task}</li>
+              <li key={index} onClick={()=> clearOneTask(index)}>
+                {task}
+              </li>
             ))}
           </h5>
         </div>
       </Form>
+      </section>
     </div>
   );
 };
