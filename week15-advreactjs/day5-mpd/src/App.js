@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Exercise from "./MPD/Exercise/Exercise.js";
+import DailyChallenge from "./MPD/DC/DailyChallenge.js";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <nav>
+          <ul>
+            <li id="ex">
+              <Link to="/exercise">Exercise</Link>
+            </li>
+            <li id="ex">
+              <Link to="/dc">DC</Link>
+            </li>
+            <header className="App-header"></header>
+          </ul>
+        </nav>
+
+        <Routes>
+          <Route path="/exercise" element={<Exercise />} />
+          <Route path="/dc" element={<DailyChallenge />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

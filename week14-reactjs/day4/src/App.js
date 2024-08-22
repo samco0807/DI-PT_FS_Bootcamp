@@ -17,7 +17,7 @@ const App = () => {
               <Link to="/exercise23">Exercise 2-3</Link>
             </li>   
             <li>
-              <Link to="/DC">DC</Link>
+              <Link to="/dc">DC</Link>
             </li>
             <header className="App-header"></header>
           </ul>

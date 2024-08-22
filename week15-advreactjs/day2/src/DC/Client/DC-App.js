@@ -1,58 +1,62 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
+import axios from "axios";
 
-export class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { data: null };
-  }
+const App = () => {
+  const [data, setData] = useState("");
 
-  async componentDidMount() {
-    const response = await fetch("/api/hello");
-    const data = await response.json();
-    this.state({ data });
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/api/hello");
+        setData(response);
+      } catch (error) {
+        console.log("Error fetching data", error);
+      }
+    };
 
-  render() {
-    const { data } = this.state;
-
-    if (!data) {
-      return <div>Loading...</div>;
-    }
-    return (
-      <div>
-        <header> {data}</header>
-        <InputComponent />
-      </div>
-    );
-  }
-}
-
-const InputComponent = () => {
-  const [inputValue, setInputValue] = useState("");
-
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(inputValue);
-  };
+    fetchData();
+  }, []);
 
   return (
     <div>
-      <form method="POST" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="input"
-          id="input"
-          value={inputValue}
-          onChange={handleInputChange}
-        ></input>
-        <button type="submit"></button>
-      </form>
+      <header>{data}</header>
+
+      <form>
+    <input type="text">Bonjour
+    </input>
+    <button type="submit">Submit</button>
+    </form>
     </div>
   );
+
+
+  // const InputComponent = () => {
+  //   const [inputValue, setInputValue] = useState("");
+
+  //   const handleInputChange = (e) => {
+  //     setInputValue(e.target.value);
+  //   };
+
+  //   const handleSubmit = (e) => {
+  //     e.preventDefault();
+  //     console.log(inputValue);
+  //   };
 };
+//   <div>
+//     <header> {data}</header>
+//     <InputComponent />
+//   </div>
+//   <div>
+//   <form method="POST" onSubmit={handleSubmit}>
+//     <input
+//       type="text"
+//       name="input"
+//       id="input"
+//       value={inputValue}
+//       onChange={handleInputChange}
+//     ></input>
+//     <button type="submit"></button>
+//   </form>
+// </div>)
 
 export default App;

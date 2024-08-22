@@ -1,4 +1,4 @@
-import dataFiles from "./ExerciseXP2.json";
+import dataFiles from "./dataFiles.json";
 import React, { Component } from "react";
 
 export default class PostList extends Component {

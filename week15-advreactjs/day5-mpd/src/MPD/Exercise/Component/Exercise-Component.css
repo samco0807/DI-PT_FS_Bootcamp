@@ -1,0 +1,31 @@
+.container {
+  background-color: rgb(238, 238, 238);
+}
+
+h1 {
+  color: rgb(0, 136, 255);
+}
+
+li {
+  list-style-type: none;
+}
+
+#inputtask{
+    width: 40%;
+    margin: auto;
+    
+}
+
+.dislayedtasks {
+  margin: 2% auto;
+  width: 40%;
+  font-size: 2rem;
+  color: black;
+  border-bottom: rgb(129, 124, 124) 1px solid;
+}
+
+.btn{
+    margin: auto;
+    margin-left: 1%;
+    margin-top: 1%;
+}

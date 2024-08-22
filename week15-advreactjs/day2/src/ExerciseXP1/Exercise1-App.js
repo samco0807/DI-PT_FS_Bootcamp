@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./ExerciseXP1-Component/Home.js";
 import Shop from "./ExerciseXP1-Component/Shop.js";
@@ -8,8 +8,7 @@ import ErrorBoundary from "./ExerciseXP1-Component/Exercise1-Component.js";
 
 const App = () => {
   return (
-    <>
-      <BrowserRouter>
+    <>  
         <ErrorBoundary>
           <nav>
             <ul>
@@ -30,7 +29,7 @@ const App = () => {
             <Route path="/shop" element={<Shop />} />
           </Routes>
         </ErrorBoundary>
-      </BrowserRouter>
+      
     </>
   );
 };

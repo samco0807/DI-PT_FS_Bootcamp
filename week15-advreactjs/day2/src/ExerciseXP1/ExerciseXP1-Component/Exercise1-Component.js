@@ -18,7 +18,7 @@ componentDidCatch(error, errorInfo) {
       errorInfo: errorInfo
   })
 }
-}
+
 
 render() {
   if (this.state.hasError) {
@@ -34,6 +34,6 @@ render() {
 
   return this.props.children;
 }
-
+}
 
 export default ErrorBoundary;
