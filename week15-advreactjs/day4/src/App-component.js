@@ -1,14 +1,12 @@
 import React, { createContext, useState } from "react";
 
-// Create contexte for the theme
 export const ThemeContext = createContext();
 
-const ThemeProvider = ({ children }) => {
+export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");
 
-  // function to switch between themes
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   return (
@@ -17,5 +15,3 @@ const ThemeProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
-
-export default ThemeProvider
