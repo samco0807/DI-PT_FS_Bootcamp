@@ -20,7 +20,7 @@ const Quote = () => {
   return (
     <div className="container">
       <div className="quote-box">
-        <h1 className="quote">"{currentQuote.quote}"</h1>
+        <h1 className="quote">-{currentQuote.quote}-</h1>
         <p className="author">-{currentQuote.author}-</p>
         <button onClick={showRandomQuote}>New quote</button>
       </div>
