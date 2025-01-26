@@ -12,5 +12,4 @@ router.delete("/logout", userController.logoutUser);
 router.get("/all", verifyToken, userController.getUsers);
 router.get("/auth", verifyToken, userController.verifyAuth);
 
-
 module.exports = router;

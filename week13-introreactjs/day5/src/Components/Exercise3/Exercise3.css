@@ -1,13 +1,13 @@
 h1 {
-  color: "white";
-  background-color: "DodgerBlue";
+  /* color: "white";
+  background-color: "DodgerBlue"; */
   padding: "10px";
   font-family: "Arial";
 }
 
 .para {
-    background-color: #282c34;
-    color: white;
+    /* background-color: #282c34;
+    color: white; */
     padding: 40px;
     font-family: Arial;
     text-align: center;

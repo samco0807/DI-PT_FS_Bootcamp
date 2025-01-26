@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 
 class Color extends Component {
   constructor(props) {
@@ -22,6 +22,7 @@ class Color extends Component {
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log("in getSnapshotBeforeUpdate");
+    return null
   }
 
   componentWillUnmount() {
@@ -35,6 +36,20 @@ class Color extends Component {
   ShowProperty = () => {
     this.setState({ show: false });
   };
+
+  render() {
+    return (
+      <>
+        {this.state.show && (
+          <header>
+            <h1>My Favorite Color is {this.state.color}</h1>
+            <button onClick={this.FavoriteColor}>Change Color</button>
+            <button onClick={this.ShowProperty}>Delete Header</button>
+          </header>
+        )}
+      </>
+    );
+  }
 }
 
 export default Color;

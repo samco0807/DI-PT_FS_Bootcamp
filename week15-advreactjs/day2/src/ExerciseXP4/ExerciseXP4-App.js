@@ -13,8 +13,8 @@ const App = () => {
       lastname: "Doe",
       age: 27,
     };
-    const result = await response.json();
     JSON.parse(data);
+    const result = await response.json();
 
 return (
       <div>

@@ -2,28 +2,29 @@ import React from "react";
 import data from "./data.json";
 
 export const Example3 = () => {
-  const experiences = data.experience;
+  const experiencesList = data.Experiences;
+
   return (
     <div>
       <h1>Social Medias</h1>
-      {experiences.map((experience, index) => (
-        <div key={index}>
-          <h2>{experience.companyName}</h2>
-          <h2>{experience.logo}</h2>
-          <h2>{experience.url}</h2>
-          <div>
-          {experience.roles.map((role, roleIndex)=>(
-            <div key={roleIndex} >
-                <h2>{role.title}</h2>
-                <h2>{role.description}</h2>
-                <h2>{role.startDate}</h2>
-                <h2>{role.endDate}</h2>
-                <h2>{role.location}</h2>
-            </div>
-          ))}
+      <div>
+        {experiencesList.map((experience, index) => (
+          <div key={index}>
+            {/* display the logo */}
+            <img src={experience.logo} alt="bla"></img>
+            <h2>{experience.companyName}</h2>
+
+            {experience.roles.map((role, roleIndex) => (
+              <div key={roleIndex}>
+                <h3>{role.index}</h3>
+                <p>{role.description} </p>{" "}
+              </div>
+            ))}
+            <h3>{experience.title}</h3>
+            <p>{experience.decription}</p>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

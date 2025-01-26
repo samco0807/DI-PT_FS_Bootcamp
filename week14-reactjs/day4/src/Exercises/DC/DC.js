@@ -12,7 +12,7 @@ class App extends React.Component {
   handleSubmit = (FormData) => {
     this.setState = { FormData };
     console.log(FormData);
-
+  };
 
   render() {
     return (
@@ -35,6 +35,5 @@ class App extends React.Component {
     );
   }
 }
-};
 
 export default App;

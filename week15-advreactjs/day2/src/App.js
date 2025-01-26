@@ -1,10 +1,10 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Exercise1 from "./ExerciseXP1/Exercise1-App.js";
+import Exercise1App from "./ExerciseXP1/Exercise1-App.js";
 import Exercise2 from "./ExerciseXP2/ExerciseXP2-App.js";
 import Exercise3 from "./ExerciseXP3/ExerciseXP3-App.js";
 import Exercise4 from "./ExerciseXP4/ExerciseXP4-App.js";
-import DailyChallenge from "./DC/Client/DC-App.js";
+import DailyChallenge from "./DC/client/DC-App.js";
 
 const App = () => {
   return (
@@ -32,7 +32,7 @@ const App = () => {
         </nav>
 
         <Routes>
-          <Route path="/exercise1" element={<Exercise1 />} />
+          <Route path="/exercise1/*" element={<Exercise1App />} />
           <Route path="/exercise2" element={<Exercise2 />} />
           <Route path="/exercise3" element={<Exercise3 />} />
           <Route path="/exercise4" element={<Exercise4 />} />

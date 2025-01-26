@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import ThemeProvider, {ThemeContext} from "./Exercise1-Component/Exercise1-Component.js";
 import ThemeToggle from "./Exercise1-Component/ThemeToggle.js";
 
@@ -16,7 +16,7 @@ const App = () => {
 };
 
 const Content = () => {
-  const { theme } = React.useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const style = {
     backgroundColor: theme === "light" ? "#fff" : "#333",
     color: theme === "light" ? "#000" : "#fff",

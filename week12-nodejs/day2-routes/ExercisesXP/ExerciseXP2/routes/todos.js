@@ -1,54 +1,57 @@
+// exercise1/routes/todos.js
 const express = require("express");
-const router = require('express').Router()
+const router = express.Router();
 
 // Sample in-memory database for storing to-do items
 const todos = [];
 
 // Get all to-do items
 const allItems = (req, res) => {
-  res.send("All to do items");
+  res.send("All to do items", todos);
+  console.log(todos);
 };
 
 // Add a new to-do item
 const newItem = (req, res) => {
-  res.send("New item");
+  const newTodo = {
+    id: todos.length + 1,
+    title: req.body.title,
+    description: req.body.description,
+  };
+  todos.push(newTodo);
+  res.status(201).json(newTodo);
 };
 
 // Update a to-do item by ID
-const updateTodo = (req, res) => {
-  const id = Number(req.params.todoID);
+const updateItem = (req, res) => {
+  const id = Number(req.params.id);
   const index = todos.findIndex((todo) => todo.id === id);
   if (index === -1) {
     return res.status(404).send("Todo not found");
   }
-  const updatedProduct = {
-    id: todos[index].id,
-    name: req.body.name,
-    price: req.body.price,
+  todos[index] = {
+    ...todos[index],
+    title: req.body.title || todos[index].title,
+    description: req.body.description || todos[index].description,
   };
-  products[index] = updatedProduct;
-  res.status(200).json("Product updated");
+
+  res.status(200).json(todos[index]);
 };
 
 // Delete a to-do item by ID
-const deleteItemTodo = (req, res) => {
-  const id = Number(req.params.todosID);
+const deleteItem = (req, res) => {
+  const id = Number(req.params.id);
   const index = todos.findIndex((todo) => todo.id === id);
   if (index === -1) {
     return res.status(404).send("Todo not found");
   }
   todos.splice(index, 1);
-  res.status(200).json("Todos deleted");
+  res.status(200).json({ message: "Todo deleted" });
 };
 
 router.get("/", allItems);
-router.post("/todos", newItem);
-router.put("/todos/:id", updateTodo);
-router.delete("/todos/:id", deleteItemTodo);
+router.post("/", newItem);
+router.put("/:id", updateItem);
+router.delete("/:id", deleteItem);
 
-// GET http://localhost:3000/todos (Get all to-do items)
-// POST http://localhost:3000/todos (Create a new to-do item with a JSON request body)
-// PUT http://localhost:3000/todos/:id (Update a to-do item by ID with a JSON request body)
-// DELETE http://localhost:3000/todos/:id (Delete a to-do item by ID)
-
-module.exports = router
+module.exports = router;

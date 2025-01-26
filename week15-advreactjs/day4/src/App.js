@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Exercise1 from "./Exercise1/Exercise1-App.js";
 import Exercise2 from "./Exercise2/Exercise2-App.js";
 import Exercise3 from "./Exercise3/Exercise3-App.js";
-import DailyChallenge from "./DC/DC-App.js";
+import DailyChallengeApp from "./DC/DC-App.js";
 
 const App = () => {
   return (
@@ -34,7 +34,7 @@ const App = () => {
             <Route path="/exercise1" element={<Exercise1 />} />
             <Route path="/exercise2" element={<Exercise2 />} />
             <Route path="/exercise3" element={<Exercise3 />} />
-            <Route path="/dc" element={<DailyChallenge />} />
+            <Route path="/dc" element={<DailyChallengeApp />} />
           </Routes>
         </div>
       </Router>

@@ -35,37 +35,39 @@ const ExerciseComponent = () => {
   return (
     <div className="container">
       <section>
-      <h1>Todo's</h1>
-      <Form onSubmit={handleSubmit}>
-        <Form.Control
-          type="text"
-          id="inputtask"
-          value={task}
-          onChange={handleInputChange}
-          placeholder="Add a new todo"
-          aria-describedby="passwordHelpBlock"
-        />
-        <Button variant="primary" type="submit" className="btn">
-          Add task
-        </Button>
-        <Button
-          className="btn"
-          variant="danger"
-          type="button"
-          onClick={clearTasks}
-        >
-          Delete All Tasks
-        </Button>{" "}
-        <div className="dislayedtasks">
-          <h5>
-            {tasks.map((task, index) => (
-              <li key={index} onClick={()=> clearOneTask(index)}>
-                {task}
-              </li>
-            ))}
-          </h5>
-        </div>
-      </Form>
+        <h1>Todo's</h1>
+        
+        <Form onSubmit={handleSubmit}>
+          
+          <Form.Control
+            type="text"
+            id="inputtask"
+            value={task}
+            onChange={handleInputChange}
+            placeholder="Add a new todo"
+            aria-describedby="passwordHelpBlock"
+          />
+          <Button variant="primary" type="submit" className="btn">
+            Add task
+          </Button>
+          <Button
+            className="btn"
+            variant="danger"
+            type="button"
+            onClick={clearTasks}
+          >
+            Delete All Tasks
+          </Button>{" "}
+          <div className="displayedtasks">
+            <h5>
+              {tasks.map((task, index) => (
+                <li key={index} onClick={() => clearOneTask(index)}>
+                  {task}
+                </li>
+              ))}
+            </h5>
+          </div>
+        </Form>
       </section>
     </div>
   );

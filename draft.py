@@ -436,31 +436,27 @@ my_username="Samuel"
 # stairway= Song(["There’s a lady who's sure","all that glitters is gold", "and she’s buying a stairway to heaven"])
 # stairway.sing_me_a_song()
 
-class Zoo():
+# class Zoo():
     
-    def __init__(self, zoo_name):
-        self.zoo_name=zoo_name
-        animals=[]
+#     def __init__(self, zoo_name):
+#         self.zoo_name=zoo_name
+#         animals=[]
     
-    def add_animal(self, new_animal):
-        self.new_animal=new_animal
-        print(animal)
+#     def add_animal(self, new_animal):
+#         self.new_animal=new_animal
+#         print(animal)
     
-    def sell_animal(self, animal_sold):
-        self.animal_sold=animal_sold
-        if animal in animals:
-            animals-=animal_sold
-            print(animals)
-        else:
-            print(f"The {animal_sold} is not is the animals")
+#     def sell_animal(self, animal_sold):
+#         self.animal_sold=animal_sold
+#         if animal in animals:
+#             animals-=animal_sold
+#             print(animals)
+#         else:
+#             print(f"The {animal_sold} is not is the animals")
 
-    def sort_animals(self, sort_animals):
-        animals.sort()
-        for animal in animals:
-            animal[0].dict()
+#     def sort_animals(self, sort_animals):
+#         animals.sort()
+#         for animal in animals:
+#             animal[0].dict()
     
-    ramat_gan_safari=Zoo(Giraffe)
-
-
-
-
+#     ramat_gan_safari=Zoo(Giraffe)
