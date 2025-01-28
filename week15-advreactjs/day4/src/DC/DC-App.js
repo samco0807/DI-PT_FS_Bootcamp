@@ -1,12 +1,15 @@
 import React from "react";
-import TodoList from "./DC-Component/DC-Component.js";
+import TodoList from "./DC-Component/DCComponent.js";
+import { TodoProvider } from "./DC-Component/DCTodoContext.js";
 
-const Exercise3App = () => {
+const DailyChallengeApp = () => {
   return (
     <div className="App">
-      <TodoList />
+      <TodoProvider>
+        <TodoList />
+      </TodoProvider>
     </div>
   );
 };
 
-export default Exercise3App;
+export default DailyChallengeApp;

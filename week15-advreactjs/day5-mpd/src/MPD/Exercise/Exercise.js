@@ -1,4 +1,3 @@
-import React from "react";
 import ExerciseComponent from "./Component/Exercise-Component.js";
 
 const Exercise = () => {
