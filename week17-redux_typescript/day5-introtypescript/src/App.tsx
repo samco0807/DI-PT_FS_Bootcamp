@@ -9,7 +9,6 @@ import Exercise7 from "./Exercise7/Exercise7";
 import Exercise8 from "./Exercise8/Exercise8";
 import Exercise9 from "./Exercise9/Exercise9";
 import DailyChallenge from "./DC/DC";
-
 import "./App.css";
 
 const App = () => {

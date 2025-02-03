@@ -1,11 +1,24 @@
-import React from "react";
-
-const id: number | string = 2;
+import React, { useState } from "react";
 
 const Exercise5 = () => {
+  // const [name, setName] = useState("");
+  // const [age, setAge] = useState("");
+
+  // const getDetails = () => {
+  //   const details: [string, number];
+  //   details = [name, age];
+  //   console.log(`Hello ${name}, you are ${age}`);
+  // };
+
+  // getDetails();
+
   return (
     <div>
-      <h1>{id}</h1>
+      <form>
+        <input type="text" placeholder="name"/>
+        <input type="text" placeholder="age"/>
+      </form>
+      <h2>Hello your </h2>
     </div>
   );
 };
