@@ -1,25 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Exercise4 = () => {
-  const inputNumber = () => {
-    let numberInput = prompt("Enter a number:", "");
-    if (numberInput === null || numberInput === "") {
-      <h1> Please enter a number</h1>;
+  const [inputNumber, setInputNumber] = useState("");
+  const [result, setResult] = useState<string | null>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (inputNumber.trim() === "" || isNaN(Number(inputNumber))) {
+      setResult("You did not enter a number. Please enter a number");
+      return;
     }
 
-    const number = parseFloat(numberInput);
-    if (isNaN(numberInput)) return <h1>Invalid number</h1>;
+    const number = parseFloat(inputNumber);
 
     if (number > 0) {
-      return <h1>the number positive</h1>;
+      setResult("the number positive");
     } else {
-      return <h1>the number is negative or 0</h1>;
+      setResult("the number is negative or 0");
     }
+    setInputNumber("");
   };
 
-  const result = inputNumber(0);
-
-  return <div>{result}</div>;
+  return (
+    <div>
+      <h1>Exercise 4</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder=" Enter a number"
+          value={inputNumber}
+          onChange={(e) => setInputNumber(e.target.value)}
+        />
+        <button type="submit">Check Number</button>
+        <h3>{result}</h3>
+      </form>
+    </div>
+  );
 };
 
 export default Exercise4;

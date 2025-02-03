@@ -8,6 +8,7 @@ import Exercise6 from "./Exercise6/Exercise6";
 import Exercise7 from "./Exercise7/Exercise7";
 import Exercise8 from "./Exercise8/Exercise8";
 import Exercise9 from "./Exercise9/Exercise9";
+import DailyChallenge from "./DC/DC";
 
 import "./App.css";
 
@@ -15,6 +16,7 @@ const App = () => {
   return (
     <Router>
       <div className="exercises">
+        <h1>Exercises XP</h1>
         <h2>
           <li>
             {" "}
@@ -44,6 +46,9 @@ const App = () => {
           <li>
             <Link to="exercise9">Exercise9</Link>
           </li>
+          <li>
+            <Link to="dc">Daily Challenge</Link>
+          </li>
         </h2>
 
         <Routes>
@@ -56,6 +61,7 @@ const App = () => {
           <Route path="/exercise7" element={<Exercise7 />} />
           <Route path="/exercise8" element={<Exercise8 />} />
           <Route path="/exercise9" element={<Exercise9 />} />
+          <Route path="/dc" element={<DailyChallenge />} />
         </Routes>
       </div>
     </Router>
