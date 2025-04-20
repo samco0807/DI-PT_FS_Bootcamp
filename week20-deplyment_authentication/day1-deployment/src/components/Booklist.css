@@ -1,0 +1,24 @@
+.bookListContainer {
+    display: grid;
+    /* Crée 4 colonnes égales ou autant que possible si moins de place */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* S'assure qu'il y a bien 4 colonnes sur écrans larges */
+    /* @media (min-width: 992px) {
+      grid-template-columns: repeat(4, 1fr);
+    } */
+    gap: 20px; /* Espace entre les cartes */
+    padding: 20px;
+    max-width: 1200px; /* Limite la largeur max pour la lisibilité */
+    margin: 0 auto; /* Centre la grille */
+  }
+  
+  .message, .errorMessage {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .errorMessage {
+      color: red;
+  }

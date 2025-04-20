@@ -1,0 +1,196 @@
+/* App/src/App.css */
+
+/* --- Variables CSS (Gardons celles-ci) --- */
+:root {
+  --primary-color: #3498db; /* Bleu clair */
+  --primary-color-dark: #2980b9;
+  --background-color: #f8f9fa; /* Gris très clair */
+  --card-background: #ffffff; /* Blanc */
+  --text-color: #343a40; /* Gris foncé */
+  --text-muted: #6c757d; /* Gris moyen */
+  --border-color: #dee2e6; /* Gris clair */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --card-border-radius: 8px;
+  --base-spacing: 1rem; /* 16px par défaut */
+}
+
+/* --- Styles Globaux --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* --- Conteneur Principal --- */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: calc(var(--base-spacing) * 1.5);
+}
+
+/* --- Header (Si tu l'utilises et le styles) --- */
+/* .header { ... styles pour ton header ... } */
+
+/* --- Search Box --- */
+/* IMPORTANT: S'assurer que SearchBox.tsx utilise ces classes */
+.header, .search-container { /* Renommé depuis search-form pour correspondre à la suggestion précédente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: calc(var(--base-spacing) * 2.5);
+  gap: calc(var(--base-spacing) * 0.75);
+}
+
+.search-input { /* Renommé depuis search-box */
+  padding: calc(var(--base-spacing) * 0.75) var(--base-spacing);
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-border-radius);
+  width: 100%;
+  max-width: 400px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+.search-button {
+  padding: calc(var(--base-spacing) * 0.75) calc(var(--base-spacing) * 1.25);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--card-border-radius);
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+.search-button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+/* --- Messages (Loading/Error/No Books) --- */
+/* IMPORTANT: S'assurer que BookList.tsx utilise ces classes */
+.message {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: calc(var(--base-spacing) * 3) auto;
+  padding: var(--base-spacing);
+  max-width: 400px;
+  border-radius: var(--card-border-radius);
+  background-color: #e9ecef;
+  color: var(--text-muted);
+}
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+
+/* --- Book List Grid --- */
+/* IMPORTANT: S'assurer que BookList.tsx utilise cette classe pour son conteneur */
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive */
+  gap: calc(var(--base-spacing) * 1.5);
+  margin-top: calc(var(--base-spacing) * 2); /* Espace après la recherche */
+}
+
+/* --- Book Card --- */
+/* IMPORTANT: S'assurer que BookCard.tsx utilise ces classes */
+.book-card {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-border-radius);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  padding: var(--base-spacing);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  height: 100%; /* Permet aux cartes d'avoir la même hauteur dans la grille */
+}
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.book-card a {
+  display: block;
+  text-align: center;
+  margin-bottom: var(--base-spacing);
+}
+
+/* Renommé depuis book-card-image pour correspondre au JSX */
+.book-card-img {
+  width: 100%;
+  max-width: 150px;
+  height: 200px;
+  object-fit: contain;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.book-card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.book-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 calc(var(--base-spacing) * 0.5) 0;
+  line-height: 1.3;
+  max-height: 2.6em; /* ~2 lignes */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Renommé depuis card-text pour correspondre au JSX (et être cohérent) */
+.book-card-text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0 0 calc(var(--base-spacing) * 0.25) 0;
+}
+.book-card-text:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Responsive (Exemple) --- */
+@media (max-width: 576px) {
+  .app-container {
+    padding: var(--base-spacing);
+  }
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-input {
+    max-width: none;
+  }
+  .book-list {
+     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Cartes plus petites */
+     gap: var(--base-spacing);
+  }
+   .book-card-img {
+      height: 160px;
+   }
+}
+
+/* --- SUPPRIMER / NETTOYER --- */
+/* Enlever les styles .logo, .logo:hover, .card (vite), .read-the-docs, @keyframes etc. */
+/* Enlever le #root { ... } s'il est redondant avec :root */

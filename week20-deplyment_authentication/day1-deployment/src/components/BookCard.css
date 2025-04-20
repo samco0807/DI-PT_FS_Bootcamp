@@ -1,0 +1,44 @@
+.bookCard {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex; /* Pour mieux aligner si besoin */
+    flex-direction: column; /* Empile image et texte */
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .bookCard:hover {
+      transform: translateY(-5px); /* Léger effet au survol */
+  }
+  
+  .bookThumbnail {
+    max-width: 128px; /* Taille standard de miniature Google Books */
+    height: auto; /* Garde les proportions */
+    margin: 0 auto 15px auto; /* Centre l'image et ajoute marge en bas */
+    object-fit: cover; /* Pour éviter la déformation si ratio différent */
+     min-height: 192px; /* Assure une hauteur minimale même si l'image est petite */
+     background-color: #f0f0f0; /* Fond si image charge pas */
+  }
+  
+  .cardBody {
+    flex-grow: 1; /* Permet au corps de prendre l'espace restant */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espace le contenu verticalement */
+  }
+  
+  .cardTitle {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+     min-height: 40px; /* Assure de la place pour 2 lignes de titre */
+  }
+  
+  .cardText {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+  }

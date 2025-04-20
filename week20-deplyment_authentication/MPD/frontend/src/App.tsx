@@ -3,7 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import LogoutPage from "./pages/LogoutPage.jsx";
-import ProtectedRoute from "./pages/ProtectedRoute.jsx";
+import ProtectedRoute from "./pages/ProtectedRoute.tsx";
 
 export const App: React.FC = () => {
   return (
@@ -28,12 +28,11 @@ export const App: React.FC = () => {
         <Route path="/logout" element={<LogoutPage />}></Route>
         <Route
           path="/protected"
-          element={
+          element=
             <ProtectedRoute>
-              <h1>Protected Page</h1>
-            </ProtectedRoute>
-          }
-        />
+       
+          
+          
       </Routes>
     </div>
   );
