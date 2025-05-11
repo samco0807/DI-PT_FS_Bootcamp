@@ -1,7 +1,7 @@
 // root/controller/usersController.js
 import { fileURLToPath } from "url";
 import path from "path";
-import fs from "fs"
+import fs from "fs";
 import bcryptjs, { genSaltSync } from "bcryptjs";
 
 const _filename = fileURLToPath(import.meta.url);
