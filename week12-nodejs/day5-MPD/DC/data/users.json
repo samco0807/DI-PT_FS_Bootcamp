@@ -1,10 +1,26 @@
-
-{
-  "users": [
-    {
-      "id": 1,
-      "username": "John Doe",
-      "email": ""
-    }
-  ]
-}
+[
+  {
+    "id": 2,
+    "firstname": "ffsgfs",
+    "lastname": "dfbgdfg",
+    "email": "sdf@gfdgdf.com",
+    "username": "rgdr",
+    "password": "$2b$10$aeJNh2z0s7V/EqTixSw6bOM2BanLsm2xG8Un4rAp63o.xKKqWsEH."
+  },
+  {
+    "id": 3,
+    "firstname": "fgfdgdfg",
+    "lastname": "xbcbvbcv",
+    "email": "bcvbcvb@gmail.com",
+    "username": "vcbcvbc",
+    "password": "$2b$10$w5rqTKUJGFMnRseOQawcpuI0MI76q5C7R4RDKsMv5NzfKhCP0UjXy"
+  },
+  {
+    "id": 4,
+    "firstname": "Samuel",
+    "lastname": "COHEN",
+    "email": "samco0807@gmail.com",
+    "username": "samco0807",
+    "password": "$2b$10$C624YgM2NU7A5yUBRr5jS.5D9valjmPmiL18VYUi/3DUIkRTAvLBC"
+  }
+]

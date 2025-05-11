@@ -1,4 +1,4 @@
-// root/controller/userController.js
+// root/controller/usersController.js
 import { fileURLToPath } from "url";
 import path from "path";
 import fs from "fs"
@@ -39,7 +39,7 @@ const writeUsers = (usersData) => {
 };
 
 // Get all the registered users
-const getAllRegisteredUsers = async (req, res) => {
+const getAllRegisteredUsers = (req, res) => {
   try {
     const users = readUsers();
     const usersWithoutPasswords = users.map(({ password, ...user }) => user);
@@ -53,7 +53,7 @@ const getAllRegisteredUsers = async (req, res) => {
 };
 
 // Get a registered user by ID
-const getRegisteredUserbyId = async (req, res) => {
+const getRegisteredUserbyId = (req, res) => {
   try {
     const userId = readUsers().user.find({ id });
     if (!userId) {
@@ -67,7 +67,7 @@ const getRegisteredUserbyId = async (req, res) => {
 };
 
 // Create a new user
-const registerUser = async (req, res) => {
+const registerUser = (req, res) => {
   try {
     const { firstname, lastname, email, username, password } = req.body;
 
@@ -84,8 +84,7 @@ const registerUser = async (req, res) => {
         .json({ message: "Username or email already exists" });
     }
 
-    
-    const hashPassword = bcryptjs.hashSync(password, salt);
+    const hashPassword = bcryptjs.hashSync(password, 10);
 
     const newUser = {
       id: users.length > 0 ? Math.max(...users.map((u) => u.id)) + 1 : 1,
@@ -102,7 +101,7 @@ const registerUser = async (req, res) => {
     const { password: _, ...userToSend } = newUser;
     res.status(201).json(userToSend);
   } catch (error) {
-    console.error("Registration error:", error);
+    console.error("Registration error in controller:", error);
     if (error.message === "Could not have users data.") {
       res.status(500).json({ message: "Failed to have new user." });
     } else {
@@ -114,10 +113,10 @@ const registerUser = async (req, res) => {
 };
 
 // Delete a task
-const loginUser = async (req, res) => {
+const loginUser = (req, res) => {
   try {
     const { username, password } = req.body;
-    if (!username != password) {
+    if (!username || !password) {
       return res
         .status(400)
         .json({ message: "Username and password are required" });

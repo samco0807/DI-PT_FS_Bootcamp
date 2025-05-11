@@ -1,13 +1,13 @@
-// root/route/user.js
+// root/route/usersRoutes.js
 import express from "express";
-import userController from "../controller/usersController.js";
+import usersController from "../controller/usersController.js";
 const router = express.Router();
 
-router.get("/", userController.getAllRegisteredUsers);
-router.get("/:id", userController.getRegisteredUserbyId);
-router.put("/:id", userController.updateUser);
+router.get("/", usersController.getAllRegisteredUsers);
+router.get("/:id", usersController.getRegisteredUserbyId);
+router.put("/:id", usersController.updateUser);
 
-router.post("/register", userController.registerUser);
-router.post("/login", userController.loginUser);
+router.post("/register", usersController.registerUser);
+router.post("/login", usersController.loginUser);
 
 export default router;
