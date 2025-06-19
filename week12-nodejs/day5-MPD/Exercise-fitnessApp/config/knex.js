@@ -1,12 +1,15 @@
-const knex = require('knex')({
-    client: 'pg',
-    connection: {
-        host: '127.0.0.1',
-        user: 'postgres',
-        password: 'alliance',
-        database: 'fitnessclub',
-        port: 5432
-    }
-});
+// root/config/knex.js
+import knex from "knex";
+import dotenv from "dotenv";
+import { knexSnakeCaseMappers } from "objection";
+dotenv.config();
 
-export default knex
+const knexConfig = {
+  client: "pg",
+  connection: process.env.DATABASE_URL_FITNESS,
+  ...knexSnakeCaseMappers(),
+};
+
+const db = knex(knexConfig);
+
+export default db;

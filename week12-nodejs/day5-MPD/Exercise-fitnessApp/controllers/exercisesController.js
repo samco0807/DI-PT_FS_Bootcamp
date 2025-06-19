@@ -1,10 +1,17 @@
-import knex from "../db.sql";
+// root/controllers/exercisesController.js
+import {
+  _fetchAllExercises,
+  _fetchExerciseById,
+  _createExercise,
+  _updateExercise,
+  _deleteExercise,
+} from "../models/exercisesModel.js";
 
 // Get all the exercises
-const getAllExercises = async (req, res) => {
+export const getAllExercises = async (req, res) => {
   try {
-    const exercises = await knex.select("*").from("exercises");
-    res.json(exercises);
+    const getAllExercises = await _fetchAllExercises();
+    res.json(getAllExercises);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
@@ -12,15 +19,14 @@ const getAllExercises = async (req, res) => {
 };
 
 // Get an exercise by ID
-const getExerciseById = async (req, res) => {
+export const getExerciseById = async (req, res) => {
+  const { exerciseId } = req.params;
   try {
-    const exercise = await knex("exercises")
-      .where({ id: req.params.id })
-      .first();
-    if (!exercise) {
+    if (!gotExerciseById) {
       return res.status(404).json({ error: "Exercise not found" });
     }
-    res.json(exercise);
+    const gotExerciseById = await _fetchExerciseById(exerciseId);
+    res.json(gotExerciseById);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
@@ -28,17 +34,24 @@ const getExerciseById = async (req, res) => {
 };
 
 // Create a new exercise
-const createExercise = async (req, res) => {
+export const createExercise = async (req, res) => {
+  const {
+    exerciseName,
+    exerciseDescription,
+    exerciseMuscleGroup,
+    exerciseCreatedAt,
+    exerciseUpdatedAt,
+  } = req.body;
   try {
     const newExercise = {
-      name: req.body.name,
-      description: req.body.description,
-      muscleGroup: req.body.muscleGroup,
-      createdAt: req.body.createdAt,
-      updatedAt: req.body.updatedAt,
+      exerciseName: exerciseName,
+      exerciseDescription: exerciseDescription,
+      exerciseMuscleGroup: exerciseMuscleGroup,
+      exerciseCreatedAt: exerciseCreatedAt,
+      exerciseUpdatedAt: exerciseUpdatedAt,
     };
-    const [id] = await knex("exercises").insert(newExercise).returning("id");
-    res.status(201).json({ id });
+    const createdExercise = await _createExercise(newExercise);
+    res.status(201).json({ createdExercise });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
@@ -46,23 +59,27 @@ const createExercise = async (req, res) => {
 };
 
 // Update an exercise
-const updateExercise = async (req, res) => {
+export const updateExercise = async (req, res) => {
+  const { exerciseId } = req.params;
+  const {
+    updatedExerciseData = {
+      exerciseName,
+      exerciseDescription,
+      exerciseMuscleGroup,
+      exerciseCreatedAt,
+      exerciseUpdatedAt,
+    },
+  } = req.body;
   try {
-    const id = Number(req.params.exercise);
-    const index = exercises.findIndex((exercise) => exercise.id === id);
-    if (index === -1) {
+    const index = exercises.findIndex((exerciseId) => exercise.id === id);
+    if (exerciseId === -1) {
       return res.status(404).send("Exercise not found");
     }
     const updatedExercise = {
-      id: exercise[index].id,
-      name: req.body.name,
-      description: req.body.description,
-      muscleGroup: req.body.muscleGroup,
-      createdAt: req.body.createdAt,
-      updatedAt: req.body.updatedAt,
+      updatedExerciseData,
     };
-    await knex("exercises").update(updatedExercise).returning("id");
-    res.status(200).json("Exercise updated");
+    await _updateExercise(updatedExercise);
+    res.status(200).json("Exercise updated successfully");
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
@@ -70,29 +87,20 @@ const updateExercise = async (req, res) => {
 };
 
 // Delete an exercise
-const deleteExercise = async (req, res) => {
+export const deleteExercise = async (req, res) => {
+  const { exerciseId } = req.params;
   try {
-    const id = Number(req.params.exerciseID);
-    const index = exercises.findIndex((exercise) => exercise.id === id);
-    if (index === -1) {
-      return res.status(404).send("Exercise not found");
-    }
-    await knex("exercises").del(id).returning("exercises");
-    exercises.splice(index, 1);
-    res.status(200).json("Exercise deleted");
+    const deletedExercise = await _deleteExercise(exerciseId);
+    // const index = exercises.findIndex((exercise) => exercise.id === id);
+    // if (index === -1) {
+    //   return res.status(404).send("Exercise not found");
+    // }
+
+    res.status(200).json("Controller: Exercise successfully deleted");
+    return deletedExercise;
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
 
-export default module = {
-  getAllExercises,
-  getExerciseById,
-  createExercise,
-  updateExercise,
-  deleteExercise,
-};
-
-const port = 3000;
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));

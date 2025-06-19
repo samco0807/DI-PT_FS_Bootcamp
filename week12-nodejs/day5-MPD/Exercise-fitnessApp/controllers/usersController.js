@@ -1,96 +1,108 @@
-import knex from "../db.sql"
+// root/controllers/usersController.js
+import {
+  _fetchAllUsers,
+  _fetchUserById,
+  _createUser,
+  _updateUser,
+  _deleteUser,
+} from "../models/usersModel.js";
 
 // Get all the users
-const getAllUsers = async (req, res) => {
+export const getAllUsers = async (req, res, next) => {
   try {
-    const users = await knex.select("*").from("users");
-    res.json(users);
+    const getAllUsers = await _fetchAllUsers();
+    res.json(getAllUsers);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal server error" });
+    console.error("Controller: error fetching all users", error);
+    next(error);
   }
 };
 
 // Get an user by ID
-const getUsersbyId = async (req, res) => {
+export const getUserById = async (req, res, next) => {
+  const { userId } = req.params;
   try {
-    const user = await knex("users").where({ id: req.params.id }).first();
+    const user = await _fetchUserById(userId);
     if (!user) {
-      return res.status(404).json({ error: "User not found" });
+      return res
+        .status(404)
+        .json({ error: `user with ID ${userId} not found` });
     }
     res.json(user);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal server error" });
+    console.error(`Controller: error fetching user by ID ${userId}`, error);
+    next(error);
   }
 };
 
 // Create a new user
-const createUser = async (req, res) => {
+export const createUser = async (req, res, next) => {
+  const { userFirstName, userLastName, userEmail, password } = req.body;
   try {
+    if (!userFirstName || !userLastName || !userEmail || !password) {
+      const err = new Error(
+        "First name, last name, email and password are required"
+      );
+      err.status = 400;
+      return next(err);
+    }
+
     const newUser = {
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      createdAt: req.body.createdAt,
-      updatedAt: req.body.updatedAt,
+      userFirstName: userFirstName,
+      userLastName: userLastName,
+      userEmail: userEmail,
+      passwordHash: password,
     };
-    const [id] = await knex("users").insert(newUser).returning("id");
-    res.status(201).json({ id });
+    const createdUser = await _createUser(newUser);
+    const { passwordHash: _, ...userResponse } = createdUser;
+    res.status(201).json(userResponse);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal server error" });
+    console.error(`Controller: error creating user`, error);
+    next(error);
   }
 };
 
 // Update an user
-const updateUser = async (req, res) => {
+export const updateUser = async (req, res, next) => {
+  const { userId } = req.params;
+  const {
+    updatedUserData = {
+      userFirstName,
+      userLastName,
+      userEmail,
+      userPassword,
+      userCreatedAt,
+      userUpdatedAt,
+    },
+  } = req.body;
   try {
-    const id = Number(req.params.userID);
-    const index = users.findIndex((user) => user.id === id);
-    if (index === -1) {
-      return res.status(404).send("User not found");
+    const updatedUser = await _updateUser(updatedUserData);
+    if (!updatedUser) {
+      res.status(404).json({ error: "User not found for update" });
     }
-    const updatedUser = {
-      id: user[index].id,
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-      createdAt: req.body.createdAt,
-      updatedAt: req.body.updatedAt,
-    };
-    await knex("users").update(updatedUser).returning("id");
-    res.status(200).json("User updated");
+    const { passwordHash, ...userResponse } = updatedUser;
+    res.status(200).json(userResponse);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal server error" });
+    console.error(`Controller: error updating user ${userId}`, error);
+    next(error);
   }
 };
 
 // Delete an user
-const deleteUser = async (req, res) => {
+export const deleteUser = async (req, res, next) => {
+  const { userId } = req.params;
   try {
-    const id = Number(req.params.userID);
-    const index = users.findIndex((user) => user.id === id);
-    if (index === -1) {
-      return res.status(404).send("User not found");
+    const deleteduser = await _deleteUser(parseInt(userId, 10));
+    if (!deleteUser) {
+      return res
+        .status(404)
+        .json({ error: "user not found or already deleted" });
     }
-    await knex("users").del(id).returning("users");
-    users.splice(index, 1);
-    res.status(200).json("User deleted");
+
+    res.status(200).json("Controller: user successfully deleted");
+    return deleteduser;
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal server error" });
+    console.error(`Controller: error deleting user ${userId}`, error);
+    next(error);
   }
 };
-
-module.exports = {
-  getAllUsers,
-  getUsersbyId,
-  createUser,
-  updateUser,
-  deleteUser,
-};
-
-const port = 3000;
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
